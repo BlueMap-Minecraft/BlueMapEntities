@@ -9,7 +9,13 @@ feel free to create a PR! :)
 In the future this is planned to be added directly to BlueMap, but this can only happen if there are a lot more entity-types
 supported.
 
-**Currently supported entity-types:**
+<img width="1525" height="571" alt="image" src="https://github.com/user-attachments/assets/b322ba74-c5da-4908-b662-23b24416cd98" />
+
+# Usage
+Download the `BlueMapEntities.jar` from the releases and place it in the `packs` folder next to your
+bluemap-configs. You will need to purge/re-render the map to see the entities appear.
+
+# Currently supported entity-types:
 - Bee
 - Breeze
 - Cat
@@ -25,7 +31,3 @@ supported.
 - Salmon
 - Tropical Fish
 - Zombie
-
-# Usage
-Download the `BlueMapEntities.jar` from the releases and place it in the `packs` folder next to your
-bluemap-configs. You will need to purge/re-render the map to see the entities appear.

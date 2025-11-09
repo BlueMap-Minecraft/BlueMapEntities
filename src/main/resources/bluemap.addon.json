@@ -1,0 +1,6 @@
+{
+  "id": "bluemap-entities",
+  "entrypoint": "de.bluecolored.bluemap.entities.Addon",
+  "dependencies": [],
+  "soft-dependencies": []
+}

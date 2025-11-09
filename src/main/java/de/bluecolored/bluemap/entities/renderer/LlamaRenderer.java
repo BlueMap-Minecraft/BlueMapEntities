@@ -34,7 +34,11 @@ import de.bluecolored.bluemap.core.resources.pack.resourcepack.model.Model;
 import de.bluecolored.bluemap.core.util.Key;
 import de.bluecolored.bluemap.core.world.Entity;
 import de.bluecolored.bluemap.core.world.block.BlockNeighborhood;
+import de.bluecolored.bluemap.entities.data.EquipmentData;
+import de.bluecolored.bluemap.entities.data.ItemStack;
 import de.bluecolored.bluemap.entities.entity.Llama;
+
+import java.util.Optional;
 
 public class LlamaRenderer extends CustomResourceModelRenderer {
 
@@ -84,7 +88,13 @@ public class LlamaRenderer extends CustomResourceModelRenderer {
         }
 
         // decoration model
-        ResourcePath<Model> decorationModel = switch (llama.getEquipment().getBody().id().getFormatted()) {
+        ResourcePath<Model> decorationModel = switch (
+                Optional.ofNullable(llama.getEquipment())
+                        .map(EquipmentData::getBody)
+                        .map(ItemStack::id)
+                        .map(Key::getFormatted)
+                        .orElse("")
+        ) {
             case "minecraft:black_carpet" -> LLAMA_CARPET_BLACK;
             case "minecraft:blue_carpet" -> LLAMA_CARPET_BLUE;
             case "minecraft:brown_carpet" -> LLAMA_CARPET_BROWN;
@@ -101,7 +111,6 @@ public class LlamaRenderer extends CustomResourceModelRenderer {
             case "minecraft:red_carpet" -> LLAMA_CARPET_RED;
             case "minecraft:white_carpet" -> LLAMA_CARPET_WHITE;
             case "minecraft:yellow_carpet" -> LLAMA_CARPET_YELLOW;
-
             default -> null;
         };
         if (decorationModel != null) {

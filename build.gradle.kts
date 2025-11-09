@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "de.bluecolored.bluemap.entities"
-version = "1.0"
+version = "1.1"
 
 repositories {
     mavenCentral()

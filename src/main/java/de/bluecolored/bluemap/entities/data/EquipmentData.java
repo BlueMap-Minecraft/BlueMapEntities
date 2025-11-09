@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class EquipmentData {
-    ItemStack head, chest, legs, feet, mainhand, offhand, body, saddle;
+    private ItemStack head, chest, legs, feet, mainhand, offhand, body, saddle;
 }

@@ -1,5 +1,10 @@
 package de.bluecolored.bluemap.entities.data;
 
 import de.bluecolored.bluemap.core.util.Key;
+import lombok.Data;
 
-public record ItemStack(Key id, int count) {}
+@Data
+public class ItemStack {
+    private Key id;
+    private int count;
+}

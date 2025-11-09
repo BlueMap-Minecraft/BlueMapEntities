@@ -91,7 +91,7 @@ public class LlamaRenderer extends CustomResourceModelRenderer {
         ResourcePath<Model> decorationModel = switch (
                 Optional.ofNullable(llama.getEquipment())
                         .map(EquipmentData::getBody)
-                        .map(ItemStack::id)
+                        .map(ItemStack::getId)
                         .map(Key::getFormatted)
                         .orElse("")
         ) {

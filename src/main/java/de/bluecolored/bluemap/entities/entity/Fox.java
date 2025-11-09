@@ -24,10 +24,15 @@
  */
 package de.bluecolored.bluemap.entities.entity;
 
+import de.bluecolored.bluenbt.NBTDeserializer;
 import de.bluecolored.bluenbt.NBTName;
+import de.bluecolored.bluenbt.NBTReader;
+import de.bluecolored.bluenbt.TypeDeserializer;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
+
+import java.io.IOException;
 
 @Getter
 @EqualsAndHashCode(callSuper = true)
@@ -39,9 +44,22 @@ public class Fox extends AgeEntity {
     @NBTName("Sleeping") boolean sleeping;
     @NBTName("Type") Type type;
 
+    @NBTDeserializer(Fox.Deserializer.class)
     public enum Type {
         RED,
         SNOW
+    }
+
+    public static class Deserializer implements TypeDeserializer<Fox.Type> {
+
+        @Override
+        public Fox.Type read(NBTReader reader) throws IOException {
+            return switch (reader.nextString()) {
+                case "snow" -> Fox.Type.SNOW;
+                default -> Fox.Type.RED;
+            };
+        }
+
     }
 
 }

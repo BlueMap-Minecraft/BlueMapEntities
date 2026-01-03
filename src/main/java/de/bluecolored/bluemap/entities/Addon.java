@@ -6,8 +6,12 @@ import de.bluecolored.bluemap.core.world.mca.entity.EntityType;
 import de.bluecolored.bluemap.entities.entity.*;
 import de.bluecolored.bluemap.entities.renderer.*;
 
+import java.util.logging.Logger;
+
 @SuppressWarnings("unused")
 public class Addon implements Runnable {
+
+    public static Logger LOGGER = Logger.getLogger("BlueMap Entities Addon");
 
     @Override
     public void run() {

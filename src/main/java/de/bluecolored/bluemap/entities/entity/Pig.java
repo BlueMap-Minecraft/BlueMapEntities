@@ -33,7 +33,7 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @ToString
 @SuppressWarnings("FieldMayBeFinal")
-public class Pig extends AgeEntity {
+public class Pig extends AgeVariantEntity {
 
     @NBTName("Saddle") boolean hasSaddle;
 }

@@ -35,6 +35,7 @@ import de.bluecolored.bluemap.core.util.Key;
 import de.bluecolored.bluemap.core.world.Entity;
 import de.bluecolored.bluemap.core.world.block.BlockNeighborhood;
 import de.bluecolored.bluemap.entities.entity.AgeEntity;
+import de.bluecolored.bluemap.entities.entity.Pig;
 
 public class PigRenderer extends CustomResourceModelRenderer {
 
@@ -48,15 +49,17 @@ public class PigRenderer extends CustomResourceModelRenderer {
 
     @Override
     public void render(Entity entity, BlockNeighborhood block, Part part, TileModelView tileModel) {
-        if (!(entity instanceof AgeEntity pig)) return;
+        if (!(entity instanceof Pig pig)) return;
 
-        // choose correct model
-        ResourcePath<Model> model;
+        // craft model path based on "entity/pig/{age}_{variant}"
+        String modelPath = "entity/pig/";
         if (pig.getAge() < 0) {
-            model = PIG_BABY;
+            modelPath += "baby_";
         } else {
-            model = PIG_ADULT;
+            modelPath += "adult_";
         }
+        modelPath += pig.getRawVariant();
+        ResourcePath<Model> model = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, modelPath);
 
         // render chosen model
         super.render(entity, block, model.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);

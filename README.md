@@ -19,15 +19,23 @@ bluemap-configs. You will need to purge/re-render the map to see the entities ap
 - Bee
 - Breeze
 - Cat
+  - Ocelot
 - Chicken
-- Cod
 - Cow
+- Pig
+- *Aquatic*
+  - Cod
+  - Salmon
+  - Pufferfish
+  - Tropical Fish
 - Fox
 - Iron Golem
 - Llama
-- Ocelot
-- Pig
-- Pufferfish
-- Salmon
-- Tropical Fish
+  - Trader Llama
 - Zombie
+  - Drowned
+  - Husk
+- Skeleton
+  - Wither Skeleton
+  - Stray
+  - Bogged

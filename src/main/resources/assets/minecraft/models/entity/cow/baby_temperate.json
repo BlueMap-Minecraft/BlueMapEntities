@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:entity/cow/baby",
+  "textures": {
+    "0": "entity/cow/temperate_cow"
+  }
+}

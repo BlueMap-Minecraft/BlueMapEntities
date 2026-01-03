@@ -25,7 +25,6 @@
 package de.bluecolored.bluemap.entities.entity;
 
 import de.bluecolored.bluemap.core.world.mca.entity.MCAEntity;
-import de.bluecolored.bluenbt.NBTName;
 import lombok.Getter;
 import lombok.ToString;
 

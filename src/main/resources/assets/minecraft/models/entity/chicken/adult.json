@@ -2,7 +2,7 @@
   "credit": "Model by Miraculixx",
   "texture_size": [64, 32],
   "textures": {
-    "0": "entity/temperate_chicken"
+    "0": "entity/chicken/temperate_chicken"
   },
   "elements": [
     {

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:entity/chicken/adult",
+  "textures": {
+    "0": "entity/chicken/temperate_chicken"
+  }
+}

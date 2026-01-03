@@ -34,13 +34,9 @@ import de.bluecolored.bluemap.core.resources.pack.resourcepack.model.Model;
 import de.bluecolored.bluemap.core.util.Key;
 import de.bluecolored.bluemap.core.world.Entity;
 import de.bluecolored.bluemap.core.world.block.BlockNeighborhood;
-import de.bluecolored.bluemap.entities.entity.AgeEntity;
+import de.bluecolored.bluemap.entities.entity.AgeVariantEntity;
 
 public class ChickenRenderer extends CustomResourceModelRenderer {
-
-    private final ResourcePath<Model>
-            CHICKEN_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/chicken/adult"),
-            CHICKEN_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/chicken/baby");
 
     public ChickenRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);
@@ -48,15 +44,17 @@ public class ChickenRenderer extends CustomResourceModelRenderer {
 
     @Override
     public void render(Entity entity, BlockNeighborhood block, Part part, TileModelView tileModel) {
-        if (!(entity instanceof AgeEntity chicken)) return;
+        if (!(entity instanceof AgeVariantEntity chicken)) return;
 
-        // choose correct model
-        ResourcePath<Model> model;
+        // craft model path based on "entity/chicken/{age}_{variant}"
+        String modelPath = "entity/chicken/";
         if (chicken.getAge() < 0) {
-            model = CHICKEN_BABY;
+            modelPath += "baby_";
         } else {
-            model = CHICKEN_ADULT;
+            modelPath += "adult_";
         }
+        modelPath += chicken.getRawVariant();
+        ResourcePath<Model> model = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, modelPath);
 
         // render chosen model
         super.render(entity, block, model.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);

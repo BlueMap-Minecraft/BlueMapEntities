@@ -15,7 +15,7 @@ public class Addon implements Runnable {
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("bee"), Bee.class));
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("cat"), Cat.class));
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("ocelot"), Ocelot.class));
-        EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("chicken"), AgeEntity.class));
+        EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("chicken"), AgeVariantEntity.class));
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("fox"), Fox.class));
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("pig"), Pig.class));
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("tropical_fish"), TropicalFish.class));

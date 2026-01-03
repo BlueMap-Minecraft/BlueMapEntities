@@ -1,0 +1,196 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made by Miraculixx",
+	"texture_size": [64, 32],
+	"textures": {
+		"0": "entity/squid/squid"
+	},
+	"elements": [
+		{
+			"name": "body",
+			"from": [-6, 0, -13],
+			"to": [6, 12, 3],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 6, 20]},
+			"faces": {
+				"north": {"uv": [6, 6, 3, 0], "rotation": 180, "texture": "#0"},
+				"east": {"uv": [0, 6, 3, 14], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [9, 0, 6, 6], "texture": "#0"},
+				"west": {"uv": [6, 6, 9, 14], "rotation": 270, "texture": "#0"},
+				"up": {"uv": [9, 6, 12, 14], "texture": "#0"},
+				"down": {"uv": [3, 6, 6, 14], "rotation": 180, "texture": "#0"}
+			}
+		},
+		{
+			"name": "tentacle1",
+			"from": [-6, 5, 2],
+			"to": [-4, 7, 20],
+			"faces": {
+				"north": {"uv": [13, 1, 12.5, 0], "rotation": 180, "texture": "#0"},
+				"east": {"uv": [12, 1, 12.5, 10], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [13.5, 0, 13, 1], "texture": "#0"},
+				"west": {"uv": [13, 1, 13.5, 10], "rotation": 270, "texture": "#0"},
+				"up": {"uv": [13.5, 1, 14, 10], "texture": "#0"},
+				"down": {"uv": [12.5, 1, 13, 10], "rotation": 180, "texture": "#0"}
+			}
+		},
+		{
+			"name": "tentacle2",
+			"from": [-2.2039, 8.04328, 2],
+			"to": [-0.2039, 10.04328, 20],
+			"rotation": {"angle": 22.5, "axis": "z", "origin": [-3.5, 3.5, 11]},
+			"faces": {
+				"north": {"uv": [13, 1, 12.5, 0], "rotation": 180, "texture": "#0"},
+				"east": {"uv": [12, 1, 12.5, 10], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [13.5, 0, 13, 1], "texture": "#0"},
+				"west": {"uv": [13, 1, 13.5, 10], "rotation": 270, "texture": "#0"},
+				"up": {"uv": [13.5, 1, 14, 10], "texture": "#0"},
+				"down": {"uv": [12.5, 1, 13, 10], "rotation": 180, "texture": "#0"}
+			}
+		},
+		{
+			"name": "tentacle3",
+			"from": [-1, 10, 2],
+			"to": [1, 12, 20],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 6, 20]},
+			"faces": {
+				"north": {"uv": [13, 1, 12.5, 0], "rotation": 180, "texture": "#0"},
+				"east": {"uv": [12, 1, 12.5, 10], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [13.5, 0, 13, 1], "texture": "#0"},
+				"west": {"uv": [13, 1, 13.5, 10], "rotation": 270, "texture": "#0"},
+				"up": {"uv": [13.5, 1, 14, 10], "texture": "#0"},
+				"down": {"uv": [12.5, 1, 13, 10], "rotation": 180, "texture": "#0"}
+			}
+		},
+		{
+			"name": "tentacle4",
+			"from": [0.2039, 8.04328, 2],
+			"to": [2.2039, 10.04328, 20],
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [3.5, 3.5, 11]},
+			"faces": {
+				"north": {"uv": [13, 1, 12.5, 0], "rotation": 180, "texture": "#0"},
+				"east": {"uv": [12, 1, 12.5, 10], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [13.5, 0, 13, 1], "texture": "#0"},
+				"west": {"uv": [13, 1, 13.5, 10], "rotation": 270, "texture": "#0"},
+				"up": {"uv": [13.5, 1, 14, 10], "texture": "#0"},
+				"down": {"uv": [12.5, 1, 13, 10], "rotation": 180, "texture": "#0"}
+			}
+		},
+		{
+			"name": "tentacle5",
+			"from": [4, 5, 2],
+			"to": [6, 7, 20],
+			"faces": {
+				"north": {"uv": [13, 1, 12.5, 0], "rotation": 180, "texture": "#0"},
+				"east": {"uv": [12, 1, 12.5, 10], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [13.5, 0, 13, 1], "texture": "#0"},
+				"west": {"uv": [13, 1, 13.5, 10], "rotation": 270, "texture": "#0"},
+				"up": {"uv": [13.5, 1, 14, 10], "texture": "#0"},
+				"down": {"uv": [12.5, 1, 13, 10], "rotation": 180, "texture": "#0"}
+			}
+		},
+		{
+			"name": "tentacle6",
+			"from": [4.7961, 1.04328, 2],
+			"to": [6.7961, 3.04328, 20],
+			"rotation": {"angle": 22.5, "axis": "z", "origin": [3.5, -3.5, 11]},
+			"faces": {
+				"north": {"uv": [13, 1, 12.5, 0], "rotation": 180, "texture": "#0"},
+				"east": {"uv": [12, 1, 12.5, 10], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [13.5, 0, 13, 1], "texture": "#0"},
+				"west": {"uv": [13, 1, 13.5, 10], "rotation": 270, "texture": "#0"},
+				"up": {"uv": [13.5, 1, 14, 10], "texture": "#0"},
+				"down": {"uv": [12.5, 1, 13, 10], "rotation": 180, "texture": "#0"}
+			}
+		},
+		{
+			"name": "tentacle7",
+			"from": [-1, 0, 2],
+			"to": [1, 2, 20],
+			"faces": {
+				"north": {"uv": [13, 1, 12.5, 0], "rotation": 180, "texture": "#0"},
+				"east": {"uv": [12, 1, 12.5, 10], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [13.5, 0, 13, 1], "texture": "#0"},
+				"west": {"uv": [13, 1, 13.5, 10], "rotation": 270, "texture": "#0"},
+				"up": {"uv": [13.5, 1, 14, 10], "texture": "#0"},
+				"down": {"uv": [12.5, 1, 13, 10], "rotation": 180, "texture": "#0"}
+			}
+		},
+		{
+			"name": "tentacle8",
+			"from": [-6.7961, 1.04328, 2],
+			"to": [-4.7961, 3.04328, 20],
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [-3.5, -3.5, 11]},
+			"faces": {
+				"north": {"uv": [13, 1, 12.5, 0], "rotation": 180, "texture": "#0"},
+				"east": {"uv": [12, 1, 12.5, 10], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [13.5, 0, 13, 1], "texture": "#0"},
+				"west": {"uv": [13, 1, 13.5, 10], "rotation": 270, "texture": "#0"},
+				"up": {"uv": [13.5, 1, 14, 10], "texture": "#0"},
+				"down": {"uv": [12.5, 1, 13, 10], "rotation": 180, "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "body",
+			"origin": [0, 25, 0],
+			"color": 0,
+			"children": [0]
+		},
+		{
+			"name": "tentacle1",
+			"origin": [-5, 18, 0],
+			"rotation": [0, -90, 0],
+			"color": 0,
+			"children": [1]
+		},
+		{
+			"name": "tentacle2",
+			"origin": [-3.5, 18, 3.5],
+			"rotation": [0, -45, 0],
+			"color": 0,
+			"children": [2]
+		},
+		{
+			"name": "tentacle3",
+			"origin": [0, 18, 5],
+			"color": 0,
+			"children": [3]
+		},
+		{
+			"name": "tentacle4",
+			"origin": [3.5, 18, 3.5],
+			"rotation": [0, 45, 0],
+			"color": 0,
+			"children": [4]
+		},
+		{
+			"name": "tentacle5",
+			"origin": [5, 18, 0],
+			"rotation": [0, 90, 0],
+			"color": 0,
+			"children": [5]
+		},
+		{
+			"name": "tentacle6",
+			"origin": [3.5, 18, -3.5],
+			"rotation": [0, 135, 0],
+			"color": 0,
+			"children": [6]
+		},
+		{
+			"name": "tentacle7",
+			"origin": [0, 18, -5],
+			"rotation": [0, -180, 0],
+			"color": 0,
+			"children": [7]
+		},
+		{
+			"name": "tentacle8",
+			"origin": [-3.5, 18, -3.5],
+			"rotation": [0, -135, 0],
+			"color": 0,
+			"children": [8]
+		}
+	]
+}

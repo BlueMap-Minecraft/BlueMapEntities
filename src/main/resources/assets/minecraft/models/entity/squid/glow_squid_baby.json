@@ -1,0 +1,6 @@
+{
+  "parent": "entity/squid/squid_baby",
+  "textures": {
+    "0": "entity/squid/glow_squid"
+  }
+}

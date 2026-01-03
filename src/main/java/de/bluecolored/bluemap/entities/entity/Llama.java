@@ -35,7 +35,7 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @ToString
 @SuppressWarnings("FieldMayBeFinal")
-public class Llama extends MCAEntity {
+public class Llama extends AgeEntity {
 
     @NBTName("ChestedHorse") boolean withChest;
     @NBTName("Variant") Variant variant;

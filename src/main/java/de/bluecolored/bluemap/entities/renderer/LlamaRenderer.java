@@ -34,36 +34,18 @@ import de.bluecolored.bluemap.core.resources.pack.resourcepack.model.Model;
 import de.bluecolored.bluemap.core.util.Key;
 import de.bluecolored.bluemap.core.world.Entity;
 import de.bluecolored.bluemap.core.world.block.BlockNeighborhood;
+import de.bluecolored.bluemap.entities.Addon;
 import de.bluecolored.bluemap.entities.data.EquipmentData;
 import de.bluecolored.bluemap.entities.data.ItemStack;
 import de.bluecolored.bluemap.entities.entity.Llama;
+import de.bluecolored.bluemap.entities.entity.TraderLlama;
 
 import java.util.Optional;
 
 public class LlamaRenderer extends CustomResourceModelRenderer {
 
     private final ResourcePath<Model>
-            LLAMA_CREAMY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/llama/color/llama_creamy"),
-            LLAMA_WHITE = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/llama/color/llama_white"),
-            LLAMA_BROWN = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/llama/color/llama_brown"),
-            LLAMA_GRAY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/llama/color/llama_gray"),
-            LLAMA_CHEST = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/llama/llama_chest"),
-            LLAMA_CARPET_BLACK = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/llama/carpet/llama_black"),
-            LLAMA_CARPET_BLUE = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/llama/carpet/llama_blue"),
-            LLAMA_CARPET_BROWN = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/llama/carpet/llama_brown"),
-            LLAMA_CARPET_CYAN = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/llama/carpet/llama_cyan"),
-            LLAMA_CARPET_GRAY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/llama/carpet/llama_gray"),
-            LLAMA_CARPET_GREEN = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/llama/carpet/llama_green"),
-            LLAMA_CARPET_LIGHT_BLUE = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/llama/carpet/llama_light_blue"),
-            LLAMA_CARPET_LIGHT_GRAY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/llama/carpet/llama_light_gray"),
-            LLAMA_CARPET_LIME = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/llama/carpet/llama_lime"),
-            LLAMA_CARPET_MAGENTA = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/llama/carpet/llama_magenta"),
-            LLAMA_CARPET_ORANGE = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/llama/carpet/llama_orange"),
-            LLAMA_CARPET_PINK = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/llama/carpet/llama_pink"),
-            LLAMA_CARPET_PURPLE = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/llama/carpet/llama_purple"),
-            LLAMA_CARPET_RED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/llama/carpet/llama_red"),
-            LLAMA_CARPET_WHITE = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/llama/carpet/llama_white"),
-            LLAMA_CARPET_YELLOW = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/llama/carpet/llama_yellow");
+            LLAMA_CHEST = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/llama/llama_chest");
 
     public LlamaRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);
@@ -73,47 +55,65 @@ public class LlamaRenderer extends CustomResourceModelRenderer {
     public void render(Entity entity, BlockNeighborhood block, Part part, TileModelView tileModel) {
         if (!(entity instanceof Llama llama)) return;
 
-        // base model
-        ResourcePath<Model> baseModel = switch (llama.getVariant()) {
-            case CREAMY -> LLAMA_CREAMY;
-            case WHITE -> LLAMA_WHITE;
-            case BROWN -> LLAMA_BROWN;
-            case GRAY -> LLAMA_GRAY;
+        boolean isTraderLlama = entity instanceof TraderLlama;
+        boolean isBaby = llama.getAge() < 0;
+
+        // base model "entity/llama/color/llama_{age}_{color}"
+        String baseModelPath = "entity/llama/color/llama_" + (isBaby ? "baby_" : "adult_");
+
+        switch (llama.getVariant()) {
+            case CREAMY -> baseModelPath += "creamy";
+            case WHITE -> baseModelPath += "white";
+            case BROWN -> baseModelPath += "brown";
+            case GRAY -> baseModelPath += "gray";
         };
+
+        ResourcePath<Model> baseModel = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, baseModelPath);
         super.render(entity, block, baseModel.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
 
-        // chest model
-        if (llama.isWithChest()) {
+
+        // chest model (only if adult)
+        if (llama.isWithChest() && !isBaby) {
             super.render(entity, block, LLAMA_CHEST.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
         }
 
-        // decoration model
-        ResourcePath<Model> decorationModel = switch (
+
+        // decoration model "entity/llama/carpet/llama_{age}_{color}"
+        String decorationModelPath = "entity/llama/carpet/llama_" + (isBaby ? "baby_" : "adult_");
+
+        switch (
                 Optional.ofNullable(llama.getEquipment())
                         .map(EquipmentData::getBody)
                         .map(ItemStack::getId)
                         .map(Key::getFormatted)
                         .orElse("")
         ) {
-            case "minecraft:black_carpet" -> LLAMA_CARPET_BLACK;
-            case "minecraft:blue_carpet" -> LLAMA_CARPET_BLUE;
-            case "minecraft:brown_carpet" -> LLAMA_CARPET_BROWN;
-            case "minecraft:cyan_carpet" -> LLAMA_CARPET_CYAN;
-            case "minecraft:gray_carpet" -> LLAMA_CARPET_GRAY;
-            case "minecraft:green_carpet" -> LLAMA_CARPET_GREEN;
-            case "minecraft:light_blue_carpet" -> LLAMA_CARPET_LIGHT_BLUE;
-            case "minecraft:light_gray_carpet" -> LLAMA_CARPET_LIGHT_GRAY;
-            case "minecraft:lime_carpet" -> LLAMA_CARPET_LIME;
-            case "minecraft:magenta_carpet" -> LLAMA_CARPET_MAGENTA;
-            case "minecraft:orange_carpet" -> LLAMA_CARPET_ORANGE;
-            case "minecraft:pink_carpet" -> LLAMA_CARPET_PINK;
-            case "minecraft:purple_carpet" -> LLAMA_CARPET_PURPLE;
-            case "minecraft:red_carpet" -> LLAMA_CARPET_RED;
-            case "minecraft:white_carpet" -> LLAMA_CARPET_WHITE;
-            case "minecraft:yellow_carpet" -> LLAMA_CARPET_YELLOW;
-            default -> null;
+            case "minecraft:black_carpet" -> decorationModelPath += "black";
+            case "minecraft:blue_carpet" ->  decorationModelPath += "blue";
+            case "minecraft:brown_carpet" -> decorationModelPath += "brown";
+            case "minecraft:cyan_carpet" -> decorationModelPath += "cyan";
+            case "minecraft:gray_carpet" -> decorationModelPath += "gray";
+            case "minecraft:green_carpet" -> decorationModelPath += "green";
+            case "minecraft:light_blue_carpet" -> decorationModelPath += "light_blue";
+            case "minecraft:light_gray_carpet" -> decorationModelPath += "light_gray";
+            case "minecraft:lime_carpet" -> decorationModelPath += "lime";
+            case "minecraft:magenta_carpet" -> decorationModelPath += "magenta";
+            case "minecraft:orange_carpet" -> decorationModelPath += "orange";
+            case "minecraft:pink_carpet" -> decorationModelPath += "pink";
+            case "minecraft:purple_carpet" -> decorationModelPath += "purple";
+            case "minecraft:red_carpet" -> decorationModelPath += "red";
+            case "minecraft:white_carpet" -> decorationModelPath += "white";
+            case "minecraft:yellow_carpet" -> decorationModelPath += "yellow";
+            default -> decorationModelPath = null;
         };
-        if (decorationModel != null) {
+
+        if (decorationModelPath == null && isTraderLlama) {
+            // trader llama without carpet uses special decoration model
+            decorationModelPath = "entity/llama/carpet/llama_" + (isBaby ? "baby" : "adult") + "_trader_llama";
+        }
+
+        if (decorationModelPath != null) {
+            ResourcePath<Model> decorationModel = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, decorationModelPath);
             super.render(entity, block, decorationModel.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
         }
 

@@ -39,8 +39,10 @@ import de.bluecolored.bluemap.entities.entity.Fox;
 public class FoxRenderer extends CustomResourceModelRenderer {
 
     private final ResourcePath<Model>
-        FOX_ADULT_RED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/fox/adult"),
-        FOX_ADULT_SNOW = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/fox/adult_snow");
+            FOX_ADULT_RED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/fox/adult"),
+            FOX_ADULT_SNOW = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/fox/adult_snow"),
+            FOX_BABY_RED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/fox/baby"),
+            FOX_BABY_SNOW = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/fox/baby_snow");
 
     public FoxRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);
@@ -51,10 +53,17 @@ public class FoxRenderer extends CustomResourceModelRenderer {
         if (!(entity instanceof Fox fox)) return;
 
         // choose correct model
-        ResourcePath<Model> model;
-        model = switch (fox.getType()) {
-            case RED -> FOX_ADULT_RED;
-            case SNOW -> FOX_ADULT_SNOW;
+        ResourcePath<Model> model = FOX_ADULT_RED;
+        boolean isBaby = fox.getAge() < 0;
+        switch (fox.getType()) {
+            case RED -> {
+                if (isBaby) model = FOX_BABY_RED;
+                else model = FOX_ADULT_RED;
+            }
+            case SNOW -> {
+                if (isBaby) model = FOX_BABY_SNOW;
+                else model = FOX_ADULT_SNOW;
+            }
         };
 
         // render chosen model

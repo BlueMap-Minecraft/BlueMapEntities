@@ -1,0 +1,6 @@
+{
+	"parent": "entity/zombie/zombie_baby",
+	"textures": {
+		"0": "entity/zombie/husk"
+	}
+}

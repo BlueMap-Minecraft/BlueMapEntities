@@ -35,5 +35,4 @@ import lombok.ToString;
 public class Zombie extends MCAEntity {
 
     @NBTName("IsBaby") boolean isBaby;
-
 }

@@ -36,23 +36,23 @@ import de.bluecolored.bluemap.core.world.Entity;
 import de.bluecolored.bluemap.core.world.block.BlockNeighborhood;
 import de.bluecolored.bluemap.entities.entity.Zombie;
 
-public class ZombieRenderer extends CustomResourceModelRenderer {
+public class DrownedRenderer extends CustomResourceModelRenderer {
 
     private final ResourcePath<Model>
-            ZOMBIE_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/zombie/zombie_adult"),
-            ZOMBIE_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/zombie/zombie_baby");
+            ZOMBIE_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/zombie/drowned_adult"),
+            ZOMBIE_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/zombie/drowned_baby");
 
-    public ZombieRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
+    public DrownedRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);
     }
 
     @Override
     public void render(Entity entity, BlockNeighborhood block, Part part, TileModelView tileModel) {
-        if (!(entity instanceof Zombie zombie)) return;
+        if (!(entity instanceof Zombie drowned)) return;
 
         // choose correct model
         ResourcePath<Model> model;
-        if (zombie.isBaby()) {
+        if (drowned.isBaby()) {
             model = ZOMBIE_BABY;
         } else {
             model = ZOMBIE_ADULT;

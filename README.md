@@ -42,3 +42,4 @@ bluemap-configs. You will need to purge/re-render the map to see the entities ap
   - Wither Skeleton
   - Stray
   - Bogged
+  - Parched

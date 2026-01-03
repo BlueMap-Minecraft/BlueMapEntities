@@ -42,7 +42,8 @@ public class SkeletonRenderer extends CustomResourceModelRenderer {
             SKELETON = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/skeleton/skeleton"),
             WITHER_SKELETON = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/skeleton/wither_skeleton"),
             STRAY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/skeleton/stray"),
-            BOGGED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/skeleton/bogged");
+            BOGGED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/skeleton/bogged"),
+            PARCHED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/skeleton/parched");
 
     public SkeletonRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);
@@ -57,6 +58,7 @@ public class SkeletonRenderer extends CustomResourceModelRenderer {
             case WitherSkeleton ignored -> WITHER_SKELETON;
             case Stray ignored -> STRAY;
             case Bogged ignored -> BOGGED;
+            case Parched ignored -> PARCHED;
             default -> SKELETON;
         };
 

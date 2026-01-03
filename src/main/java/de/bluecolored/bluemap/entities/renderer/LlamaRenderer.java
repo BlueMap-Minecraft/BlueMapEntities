@@ -34,7 +34,6 @@ import de.bluecolored.bluemap.core.resources.pack.resourcepack.model.Model;
 import de.bluecolored.bluemap.core.util.Key;
 import de.bluecolored.bluemap.core.world.Entity;
 import de.bluecolored.bluemap.core.world.block.BlockNeighborhood;
-import de.bluecolored.bluemap.entities.Addon;
 import de.bluecolored.bluemap.entities.data.EquipmentData;
 import de.bluecolored.bluemap.entities.data.ItemStack;
 import de.bluecolored.bluemap.entities.entity.Llama;
@@ -66,7 +65,7 @@ public class LlamaRenderer extends CustomResourceModelRenderer {
             case WHITE -> baseModelPath += "white";
             case BROWN -> baseModelPath += "brown";
             case GRAY -> baseModelPath += "gray";
-        };
+        }
 
         ResourcePath<Model> baseModel = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, baseModelPath);
         super.render(entity, block, baseModel.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
@@ -105,7 +104,7 @@ public class LlamaRenderer extends CustomResourceModelRenderer {
             case "minecraft:white_carpet" -> decorationModelPath += "white";
             case "minecraft:yellow_carpet" -> decorationModelPath += "yellow";
             default -> decorationModelPath = null;
-        };
+        }
 
         if (decorationModelPath == null && isTraderLlama) {
             // trader llama without carpet uses special decoration model

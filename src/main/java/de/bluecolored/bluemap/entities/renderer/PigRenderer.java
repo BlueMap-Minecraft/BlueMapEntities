@@ -34,14 +34,9 @@ import de.bluecolored.bluemap.core.resources.pack.resourcepack.model.Model;
 import de.bluecolored.bluemap.core.util.Key;
 import de.bluecolored.bluemap.core.world.Entity;
 import de.bluecolored.bluemap.core.world.block.BlockNeighborhood;
-import de.bluecolored.bluemap.entities.entity.AgeEntity;
 import de.bluecolored.bluemap.entities.entity.Pig;
 
 public class PigRenderer extends CustomResourceModelRenderer {
-
-    private final ResourcePath<Model>
-            PIG_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/pig/adult"),
-            PIG_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/pig/baby");
 
     public PigRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);

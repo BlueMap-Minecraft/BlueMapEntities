@@ -64,7 +64,7 @@ public class FoxRenderer extends CustomResourceModelRenderer {
                 if (isBaby) model = FOX_BABY_SNOW;
                 else model = FOX_ADULT_SNOW;
             }
-        };
+        }
 
         // render chosen model
         super.render(entity, block, model.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);

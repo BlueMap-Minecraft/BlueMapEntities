@@ -24,7 +24,6 @@
  */
 package de.bluecolored.bluemap.entities.entity;
 
-import de.bluecolored.bluemap.core.world.mca.entity.MCAEntity;
 import de.bluecolored.bluemap.entities.data.EquipmentData;
 import de.bluecolored.bluenbt.NBTName;
 import lombok.EqualsAndHashCode;

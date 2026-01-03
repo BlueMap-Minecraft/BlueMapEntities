@@ -3,8 +3,7 @@
 	"credit": "Model by Miraculixx",
 	"texture_size": [32, 32],
 	"textures": {
-		"0": "breeze",
-		"particle": "breeze"
+		"0": "entity/breeze/breeze"
 	},
 	"elements": [
 		{

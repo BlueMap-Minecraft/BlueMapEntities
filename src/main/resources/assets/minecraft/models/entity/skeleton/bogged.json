@@ -1,0 +1,7 @@
+{
+	"parent": "entity/skeleton/stray",
+	"textures": {
+		"0": "entity/skeleton/bogged",
+		"1": "entity/skeleton/bogged_overlay"
+	}
+}

@@ -39,7 +39,8 @@ import de.bluecolored.bluemap.entities.entity.Ocelot;
 public class OcelotRenderer extends CustomResourceModelRenderer {
 
     private final ResourcePath<Model>
-            OCELOT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/cat/cat_ocelot");
+            OCELOT_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/cat/color/cat_adult_ocelot"),
+            OCELOT_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/cat/color/cat_baby_ocelot");
 
     public OcelotRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);
@@ -50,7 +51,12 @@ public class OcelotRenderer extends CustomResourceModelRenderer {
         if (!(entity instanceof Ocelot ocelot)) return;
 
         // choose correct model
-        ResourcePath<Model> model = OCELOT;
+        ResourcePath<Model> model;
+        if (ocelot.getAge() < 0) {
+            model = OCELOT_BABY;
+        } else {
+            model = OCELOT_ADULT;
+        }
 
         // render chosen model
         super.render(entity, block, model.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);

@@ -33,23 +33,7 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @ToString
 @SuppressWarnings("FieldMayBeFinal")
-public class Cat extends AgeEntity {
+public class Cat extends AgeVariantEntity {
 
     @NBTName("Sitting") boolean sitting;
-    @NBTName("variant") Variant variant;
-
-    public enum Variant {
-        BLACK,
-        ALL_BLACK,
-        BRITISH_SHORTHAIR,
-        CALICO,
-        JELLIE,
-        PERSIAN,
-        RAGDOLL,
-        RED,
-        SIAMESE,
-        TABBY,
-        WHITE
-    }
-
 }

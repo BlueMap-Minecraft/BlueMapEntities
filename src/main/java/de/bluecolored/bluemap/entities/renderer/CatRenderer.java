@@ -38,19 +38,6 @@ import de.bluecolored.bluemap.entities.entity.Cat;
 
 public class CatRenderer extends CustomResourceModelRenderer {
 
-    private final ResourcePath<Model>
-        CAT_BLACK = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/cat/cat_black"),
-        CAT_ALL_BLACK = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/cat/cat_all_black"),
-        CAT_BRITISH_SHORTHAIR = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/cat/cat_british_shorthair"),
-        CAT_CALICO = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/cat/cat_calico"),
-        CAT_JELLIE = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/cat/cat_jellie"),
-        CAT_WHITE = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/cat/cat_white"),
-        CAT_PERSIAN = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/cat/cat_persian"),
-        CAT_RAGDOLL = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/cat/cat_ragdoll"),
-        CAT_RED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/cat/cat_red"),
-        CAT_SIAMESE = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/cat/cat_siamese"),
-        CAT_TABBY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/cat/cat_tabby");
-
     public CatRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);
     }
@@ -59,21 +46,9 @@ public class CatRenderer extends CustomResourceModelRenderer {
     public void render(Entity entity, BlockNeighborhood block, Part part, TileModelView tileModel) {
         if (!(entity instanceof Cat cat)) return;
 
-        // choose correct model
-        ResourcePath<Model> model;
-        model = switch (cat.getVariant()) {
-            case BLACK -> CAT_BLACK;
-            case ALL_BLACK -> CAT_ALL_BLACK;
-            case BRITISH_SHORTHAIR -> CAT_BRITISH_SHORTHAIR;
-            case CALICO -> CAT_CALICO;
-            case JELLIE -> CAT_JELLIE;
-            case WHITE -> CAT_WHITE;
-            case PERSIAN -> CAT_PERSIAN;
-            case RAGDOLL -> CAT_RAGDOLL;
-            case RED -> CAT_RED;
-            case SIAMESE -> CAT_SIAMESE;
-            case TABBY -> CAT_TABBY;
-        };
+        // choose correct model "entity/cat/color/cat_{age}_{variant}"
+        String modelPath = "entity/cat/color/cat_" + (cat.getAge() < 0 ? "baby_" : "adult_") + cat.getRawVariant();
+        ResourcePath<Model> model = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, modelPath);
 
         // render chosen model
         super.render(entity, block, model.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);

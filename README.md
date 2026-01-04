@@ -31,6 +31,7 @@ bluemap-configs. You will need to purge/re-render the map to see the entities ap
   - Squid
   - Glow Squid
   - Dolphin
+  - Guardian
 - Fox
 - Iron Golem
 - Llama

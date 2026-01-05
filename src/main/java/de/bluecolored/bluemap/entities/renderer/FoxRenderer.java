@@ -53,7 +53,7 @@ public class FoxRenderer extends CustomResourceModelRenderer {
         if (!(entity instanceof Fox fox)) return;
 
         // choose correct model
-        ResourcePath<Model> model = FOX_ADULT_RED;
+        ResourcePath<Model> model;
         boolean isBaby = fox.getAge() < 0;
         switch (fox.getType()) {
             case RED -> {
@@ -64,6 +64,7 @@ public class FoxRenderer extends CustomResourceModelRenderer {
                 if (isBaby) model = FOX_BABY_SNOW;
                 else model = FOX_ADULT_SNOW;
             }
+            default -> model = FOX_ADULT_RED;
         }
 
         // render chosen model

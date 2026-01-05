@@ -61,7 +61,6 @@ public class HorseRenderer extends CustomResourceModelRenderer {
             case 6 -> baseModelPath += "darkbrown";
             default -> baseModelPath += "unknown";
         }
-        Addon.LOGGER.info("Horse base model path: " + baseModelPath + " " + horse.getBaseColor());
         ResourcePath<Model> baseModel = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, baseModelPath);
         super.render(entity, block, baseModel.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
 
@@ -76,7 +75,6 @@ public class HorseRenderer extends CustomResourceModelRenderer {
             case 4 -> markingModelPath += "blackdots";
             default -> markingModelPath += "unknown";
         }
-        Addon.LOGGER.info("Horse marking model path: " + markingModelPath + " " + horse.getMarkings());
         if (markingModelPath != null) {
             ResourcePath<Model> markingModel = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, markingModelPath);
             super.render(entity, block, markingModel.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);

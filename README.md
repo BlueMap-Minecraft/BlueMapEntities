@@ -49,3 +49,5 @@ bluemap-configs. You will need to purge/re-render the map to see the entities ap
   - Mule
   - Skeleton Horse
   - Zombie Horse
+- Vex
+  - Allay

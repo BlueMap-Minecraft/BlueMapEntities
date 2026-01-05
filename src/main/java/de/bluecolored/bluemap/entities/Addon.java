@@ -43,6 +43,7 @@ public class Addon implements Runnable {
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("donkey"), Donkey.class));
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("mule"), Mule.class));
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("armadillo"), Armadillo.class));
+        EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("snow_golem"), SnowGolem.class));
 
 
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("llama"), LlamaRenderer::new));
@@ -73,6 +74,7 @@ public class Addon implements Runnable {
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("donkey"), ChestedHorseRenderer::new));
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("mule"), ChestedHorseRenderer::new));
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("armadillo"), ArmadilloRenderer::new));
+        EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("snow_golem"), SnowGolemRenderer::new));
     }
 
 }

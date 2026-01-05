@@ -34,7 +34,6 @@ import de.bluecolored.bluemap.core.resources.pack.resourcepack.model.Model;
 import de.bluecolored.bluemap.core.util.Key;
 import de.bluecolored.bluemap.core.world.Entity;
 import de.bluecolored.bluemap.core.world.block.BlockNeighborhood;
-import de.bluecolored.bluemap.entities.Addon;
 import de.bluecolored.bluemap.entities.entity.Horse;
 
 public class HorseRenderer extends CustomResourceModelRenderer {

@@ -34,7 +34,6 @@ import de.bluecolored.bluemap.core.resources.pack.resourcepack.model.Model;
 import de.bluecolored.bluemap.core.util.Key;
 import de.bluecolored.bluemap.core.world.Entity;
 import de.bluecolored.bluemap.core.world.block.BlockNeighborhood;
-import de.bluecolored.bluemap.entities.entity.Bee;
 import de.bluecolored.bluemap.entities.entity.SnowGolem;
 
 public class SnowGolemRenderer extends CustomResourceModelRenderer {

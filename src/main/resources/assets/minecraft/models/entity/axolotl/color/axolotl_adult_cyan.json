@@ -1,0 +1,6 @@
+{
+  "parent": "entity/axolotl/axolotl_adult",
+  "textures": {
+    "0": "entity/axolotl/axolotl_cyan"
+  }
+}

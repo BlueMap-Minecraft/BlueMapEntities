@@ -1,0 +1,6 @@
+{
+  "parent": "entity/axolotl/axolotl_baby",
+  "textures": {
+    "0": "entity/axolotl/axolotl_wild"
+  }
+}

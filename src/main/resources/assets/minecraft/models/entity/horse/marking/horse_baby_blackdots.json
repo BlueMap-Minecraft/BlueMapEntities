@@ -1,0 +1,6 @@
+{
+  "parent": "entity/horse/horse_baby_markings",
+  "textures": {
+    "0": "entity/horse/horse_markings_blackdots"
+  }
+}

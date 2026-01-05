@@ -1,0 +1,47 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made by Miraculixx",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "entity/horse/donkey"
+	},
+	"elements": [
+		{
+			"name": "left_chest",
+			"from": [-5.5, 6.5, 1.5],
+			"to": [-1.5, 10.5, 3],
+			"rotation": {"x": 0, "y": 90, "z": 0, "origin": [-3, 8.5, 2.5]},
+			"faces": {
+				"north": {"uv": [7.25, 6, 9.25, 8], "texture": "#0"},
+				"east": {"uv": [6.5, 6, 7.25, 8], "texture": "#0"},
+				"south": {"uv": [10, 6, 12, 8], "texture": "#0"},
+				"west": {"uv": [9.25, 6, 10, 8], "texture": "#0"},
+				"up": {"uv": [9.25, 6, 7.25, 5.25], "texture": "#0"},
+				"down": {"uv": [11.25, 5.25, 9.25, 6], "texture": "#0"}
+			}
+		},
+		{
+			"name": "right_chest",
+			"from": [0.5, 6.5, 2],
+			"to": [4.5, 10.5, 3.5],
+			"rotation": {"x": 0, "y": 90, "z": 0, "origin": [3, 8.5, 2.5]},
+			"faces": {
+				"north": {"uv": [7.25, 6, 9.25, 8], "texture": "#0"},
+				"east": {"uv": [6.5, 6, 7.25, 8], "texture": "#0"},
+				"south": {"uv": [10, 6, 12, 8], "texture": "#0"},
+				"west": {"uv": [9.25, 6, 10, 8], "texture": "#0"},
+				"up": {"uv": [9.25, 6, 7.25, 5.25], "texture": "#0"},
+				"down": {"uv": [11.25, 5.25, 9.25, 6], "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "chest",
+			"origin": [-6, 21, 6],
+			"rotation": [0, 90, 0],
+			"color": 0,
+			"children": [0, 1]
+		}
+	]
+}

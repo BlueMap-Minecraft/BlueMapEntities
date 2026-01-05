@@ -44,3 +44,8 @@ bluemap-configs. You will need to purge/re-render the map to see the entities ap
   - Stray
   - Bogged
   - Parched
+- Horse
+  - Donkey
+  - Mule
+  - Skeleton Horse
+  - Zombie Horse

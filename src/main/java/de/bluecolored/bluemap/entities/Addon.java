@@ -37,6 +37,11 @@ public class Addon implements Runnable {
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("dolphin"), AgeEntity.class));
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("squid"), Squid.class));
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("glow_squid"), GlowSquid.class));
+        EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("horse"), Horse.class));
+        EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("zombie_horse"), ZombieHorse.class));
+        EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("skeleton_horse"), SkeletonHorse.class));
+        EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("donkey"), Donkey.class));
+        EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("mule"), Mule.class));
 
 
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("llama"), LlamaRenderer::new));
@@ -61,6 +66,11 @@ public class Addon implements Runnable {
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("dolphin"), DolphinRenderer::new));
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("squid"), SquidRenderer::new));
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("glow_squid"), SquidRenderer::new));
+        EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("horse"), HorseRenderer::new));
+        EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("zombie_horse"), HostileHorseRenderer::new));
+        EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("skeleton_horse"), HostileHorseRenderer::new));
+        EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("donkey"), ChestedHorseRenderer::new));
+        EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("mule"), ChestedHorseRenderer::new));
     }
 
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "entity/horse/horse_adult",
+  "textures": {
+    "0": "entity/horse/horse_brown"
+  }
+}

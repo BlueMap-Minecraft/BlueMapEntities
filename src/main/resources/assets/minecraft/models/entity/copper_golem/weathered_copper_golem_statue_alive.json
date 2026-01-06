@@ -1,0 +1,7 @@
+{
+  "parent": "entity/copper_golem/copper_golem_statue_alive",
+  "textures": {
+    "golem": "entity/copper_golem/weathered_copper_golem",
+    "1": "entity/copper_golem/weathered_copper_golem_eyes"
+  }
+}

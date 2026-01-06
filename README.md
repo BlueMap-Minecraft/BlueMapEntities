@@ -32,8 +32,10 @@ bluemap-configs. You will need to purge/re-render the map to see the entities ap
   - Glow Squid
   - Dolphin
   - Guardian
+  - Axolotl
 - Fox
 - Iron Golem
+  - Snow Golem
 - Llama
   - Trader Llama
 - Zombie
@@ -51,3 +53,10 @@ bluemap-configs. You will need to purge/re-render the map to see the entities ap
   - Zombie Horse
 - Vex
   - Allay
+- Copper Golem
+- Camel
+  - Camel Husk
+- Bat
+- Frog
+  - Tadpole
+- Armadillo

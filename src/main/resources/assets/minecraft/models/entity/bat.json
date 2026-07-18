@@ -3,7 +3,7 @@
 	"credit": "Made by Miraculixx",
 	"texture_size": [32, 32],
 	"textures": {
-		"0": "entity/bat"
+		"0": "entity/bat/bat"
 	},
 	"elements": [
 		{

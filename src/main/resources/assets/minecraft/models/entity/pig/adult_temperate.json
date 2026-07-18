@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:entity/pig/adult",
   "textures": {
-    "0": "entity/pig/temperate_pig"
+    "0": "entity/pig/pig_temperate"
   }
 }

@@ -3,7 +3,7 @@
 	"credit": "Model by Miraculixx",
 	"texture_size": [128, 64],
 	"textures": {
-		"0": "entity/llama/brown"
+		"0": "entity/llama/llama_brown"
 	},
 	"elements": [
 		{

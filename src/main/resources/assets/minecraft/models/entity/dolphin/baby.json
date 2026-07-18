@@ -3,7 +3,7 @@
 	"credit": "Made by Miraculixx",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "entity/dolphin"
+		"0": "entity/dolphin/dolphin"
 	},
 	"elements": [
 		{

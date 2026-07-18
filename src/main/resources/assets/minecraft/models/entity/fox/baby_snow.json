@@ -1,6 +1,6 @@
 {
   "parent": "entity/fox/baby",
   "textures": {
-    "0": "entity/fox/snow_fox"
+    "0": "entity/fox/fox_snow"
   }
 }

@@ -1,0 +1,24 @@
+# llama (23 entities)
+summon minecraft:llama ~0 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],Variant:0}
+summon minecraft:llama ~4 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],Variant:1}
+summon minecraft:llama ~8 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],Variant:2}
+summon minecraft:llama ~12 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],Variant:3}
+summon minecraft:llama ~16 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],Variant:0,ChestedHorse:1b}
+summon minecraft:llama ~20 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],Variant:0,Age:-24000}
+summon minecraft:llama ~24 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],Variant:2,Age:-24000}
+summon minecraft:llama ~28 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],Variant:0,equipment:{body:{id:"minecraft:white_carpet",count:1}}}
+summon minecraft:llama ~32 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],Variant:0,equipment:{body:{id:"minecraft:orange_carpet",count:1}}}
+summon minecraft:llama ~36 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],Variant:0,equipment:{body:{id:"minecraft:magenta_carpet",count:1}}}
+summon minecraft:llama ~40 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],Variant:0,equipment:{body:{id:"minecraft:light_blue_carpet",count:1}}}
+summon minecraft:llama ~44 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],Variant:0,equipment:{body:{id:"minecraft:yellow_carpet",count:1}}}
+summon minecraft:llama ~48 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],Variant:0,equipment:{body:{id:"minecraft:lime_carpet",count:1}}}
+summon minecraft:llama ~52 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],Variant:0,equipment:{body:{id:"minecraft:pink_carpet",count:1}}}
+summon minecraft:llama ~56 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],Variant:0,equipment:{body:{id:"minecraft:gray_carpet",count:1}}}
+summon minecraft:llama ~60 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],Variant:0,equipment:{body:{id:"minecraft:light_gray_carpet",count:1}}}
+summon minecraft:llama ~64 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],Variant:0,equipment:{body:{id:"minecraft:cyan_carpet",count:1}}}
+summon minecraft:llama ~68 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],Variant:0,equipment:{body:{id:"minecraft:purple_carpet",count:1}}}
+summon minecraft:llama ~72 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],Variant:0,equipment:{body:{id:"minecraft:blue_carpet",count:1}}}
+summon minecraft:llama ~76 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],Variant:0,equipment:{body:{id:"minecraft:brown_carpet",count:1}}}
+summon minecraft:llama ~80 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],Variant:0,equipment:{body:{id:"minecraft:green_carpet",count:1}}}
+summon minecraft:llama ~84 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],Variant:0,equipment:{body:{id:"minecraft:red_carpet",count:1}}}
+summon minecraft:llama ~88 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],Variant:0,equipment:{body:{id:"minecraft:black_carpet",count:1}}}

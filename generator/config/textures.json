@@ -1,0 +1,55 @@
+{
+  "giant#main": "entity/zombie/zombie",
+  "skeleton_horse#main": "entity/horse/horse_skeleton",
+  "skeleton_horse_baby#main": "entity/horse/horse_skeleton_baby",
+  "zombie_horse#main": "entity/horse/horse_zombie",
+  "zombie_horse_baby#main": "entity/horse/horse_zombie_baby",
+
+  "bogged#outer": "entity/skeleton/bogged_overlay",
+  "stray#outer": "entity/skeleton/stray_overlay",
+  "slime#outer": "entity/slime/slime",
+
+  "tropical_fish_small#main": "entity/fish/tropical_a",
+  "tropical_fish_large#main": "entity/fish/tropical_b",
+  "tropical_fish_small#pattern": [
+    "entity/fish/tropical_a_pattern_1",
+    "entity/fish/tropical_a_pattern_2",
+    "entity/fish/tropical_a_pattern_3",
+    "entity/fish/tropical_a_pattern_4",
+    "entity/fish/tropical_a_pattern_5",
+    "entity/fish/tropical_a_pattern_6"
+  ],
+  "tropical_fish_large#pattern": [
+    "entity/fish/tropical_b_pattern_1",
+    "entity/fish/tropical_b_pattern_2",
+    "entity/fish/tropical_b_pattern_3",
+    "entity/fish/tropical_b_pattern_4",
+    "entity/fish/tropical_b_pattern_5",
+    "entity/fish/tropical_b_pattern_6"
+  ],
+
+  "copper_golem#main": [
+    "entity/copper_golem/copper_golem",
+    "entity/copper_golem/copper_golem_exposed",
+    "entity/copper_golem/copper_golem_weathered",
+    "entity/copper_golem/copper_golem_oxidized"
+  ],
+  "copper_golem_running#main": [
+    "entity/copper_golem/copper_golem",
+    "entity/copper_golem/copper_golem_exposed",
+    "entity/copper_golem/copper_golem_weathered",
+    "entity/copper_golem/copper_golem_oxidized"
+  ],
+  "copper_golem_sitting#main": [
+    "entity/copper_golem/copper_golem",
+    "entity/copper_golem/copper_golem_exposed",
+    "entity/copper_golem/copper_golem_weathered",
+    "entity/copper_golem/copper_golem_oxidized"
+  ],
+  "copper_golem_star#main": [
+    "entity/copper_golem/copper_golem",
+    "entity/copper_golem/copper_golem_exposed",
+    "entity/copper_golem/copper_golem_weathered",
+    "entity/copper_golem/copper_golem_oxidized"
+  ]
+}

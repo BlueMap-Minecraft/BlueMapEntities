@@ -3,6 +3,7 @@ package de.bluecolored.bluemap.entities;
 import de.bluecolored.bluemap.core.map.hires.entity.EntityRendererType;
 import de.bluecolored.bluemap.core.util.Key;
 import de.bluecolored.bluemap.core.world.mca.entity.EntityType;
+import de.bluecolored.bluemap.core.world.mca.entity.MCAEntity;
 import de.bluecolored.bluemap.entities.entity.*;
 import de.bluecolored.bluemap.entities.renderer.*;
 
@@ -49,6 +50,8 @@ public class Addon implements Runnable {
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("camel_husk"), CamelHusk.class));
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("copper_golem"), CopperGolem.class));
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("frog"), AgeVariantEntity.class));
+        EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("ghast"), MCAEntity.class));
+        EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("happy_ghast"), HappyGhast.class));
 
 
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("llama"), LlamaRenderer::new));
@@ -85,6 +88,8 @@ public class Addon implements Runnable {
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("camel_husk"), CamelRenderer::new));
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("copper_golem"), CopperGolemRenderer::new));
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("frog"), FrogRenderer::new));
+        EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("ghast"), GhastRenderer::new));
+        EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("happy_ghast"), GhastRenderer::new));
     }
 
 }

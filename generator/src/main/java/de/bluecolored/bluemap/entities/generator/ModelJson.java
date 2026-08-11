@@ -66,7 +66,8 @@ record ModelJson(
     }
 
     static ModelJson variant(String parent, String texture) {
-        return new ModelJson(null, null, null, "minecraft:entity/" + parent, Map.of("0", texture), null);
+        Map<String, String> textures = texture == null ? null : Map.of("0", texture);
+        return new ModelJson(null, null, null, "minecraft:entity/" + parent, textures, null);
     }
 
     private static Element element(Geometry.Element element) {

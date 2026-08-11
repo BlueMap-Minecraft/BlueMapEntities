@@ -39,8 +39,8 @@ import de.bluecolored.bluemap.entities.entity.Zombie;
 public class DrownedRenderer extends CustomResourceModelRenderer {
 
     private final ResourcePath<Model>
-            ZOMBIE_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/zombie/drowned_adult"),
-            ZOMBIE_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/zombie/drowned_baby");
+            ZOMBIE_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/drowned/main"),
+            ZOMBIE_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/drowned_baby/main");
 
     public DrownedRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);

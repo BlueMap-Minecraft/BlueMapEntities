@@ -39,11 +39,11 @@ import de.bluecolored.bluemap.entities.entity.*;
 public class SkeletonRenderer extends CustomResourceModelRenderer {
 
     private final ResourcePath<Model>
-            SKELETON = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/skeleton/skeleton"),
-            WITHER_SKELETON = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/skeleton/wither_skeleton"),
-            STRAY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/skeleton/stray"),
-            BOGGED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/skeleton/bogged"),
-            PARCHED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/skeleton/parched");
+            SKELETON = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/skeleton/main"),
+            WITHER_SKELETON = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/wither_skeleton/main"),
+            STRAY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/stray/main"),
+            BOGGED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/bogged/main"),
+            PARCHED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/parched/main");
 
     public SkeletonRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);

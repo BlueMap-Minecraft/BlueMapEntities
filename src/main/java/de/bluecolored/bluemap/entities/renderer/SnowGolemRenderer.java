@@ -39,7 +39,7 @@ import de.bluecolored.bluemap.entities.entity.SnowGolem;
 public class SnowGolemRenderer extends CustomResourceModelRenderer {
 
     private final ResourcePath<Model>
-            SNOW_GOLEM = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/snow_golem");
+            SNOW_GOLEM = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/snow_golem/main");
 
     public SnowGolemRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);

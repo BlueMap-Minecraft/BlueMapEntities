@@ -41,10 +41,10 @@ import de.bluecolored.bluemap.entities.entity.ZombieHorse;
 public class HostileHorseRenderer extends CustomResourceModelRenderer {
 
     private final ResourcePath<Model>
-            ZOMBIE_HORSE_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/horse/color/horse_adult_zombie"),
-            ZOMBIE_HORSE_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/horse/color/horse_baby_zombie"),
-            SKELETON_HORSE_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/horse/color/horse_adult_skeleton"),
-            SKELETON_HORSE_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/horse/color/horse_baby_skeleton");
+            ZOMBIE_HORSE_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/zombie_horse/main"),
+            ZOMBIE_HORSE_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/zombie_horse_baby/main"),
+            SKELETON_HORSE_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/skeleton_horse/main"),
+            SKELETON_HORSE_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/skeleton_horse_baby/main");
 
     public HostileHorseRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);

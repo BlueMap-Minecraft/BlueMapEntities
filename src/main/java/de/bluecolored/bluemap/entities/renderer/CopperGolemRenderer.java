@@ -39,10 +39,10 @@ import de.bluecolored.bluemap.entities.entity.CopperGolem;
 public class CopperGolemRenderer extends CustomResourceModelRenderer {
 
     private final ResourcePath<Model>
-            GOLEM_UNAFFECTED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/copper_golem/copper_golem_statue_alive"),
-            GOLEM_OXIDIZED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/copper_golem/oxidized_copper_golem_statue_alive"),
-            GOLEM_WEATHERED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/copper_golem/weathered_copper_golem_statue_alive"),
-            GOLEM_EXPOSED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/copper_golem/exposed_copper_golem_statue_alive");
+            GOLEM_UNAFFECTED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/copper_golem/main_unaffected"),
+            GOLEM_OXIDIZED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/copper_golem/main_oxidized"),
+            GOLEM_WEATHERED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/copper_golem/main_weathered"),
+            GOLEM_EXPOSED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/copper_golem/main_exposed");
 
     public CopperGolemRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);

@@ -32,6 +32,18 @@ import java.util.Map;
  */
 record Geometry(int textureWidth, int textureHeight, List<Element> elements, List<String> warnings) {
 
+    /** The same geometry with only the elements whose part-name matches one of the given part-paths. */
+    Geometry filter(List<String> parts, boolean keepMatching) {
+        List<Element> filtered = elements.stream()
+                .filter(element -> matches(element.name(), parts) == keepMatching)
+                .toList();
+        return new Geometry(textureWidth, textureHeight, filtered, warnings);
+    }
+
+    private static boolean matches(String name, List<String> parts) {
+        return parts.stream().anyMatch(part -> name.equals(part) || name.startsWith(part + "/") || name.startsWith(part + "_"));
+    }
+
     /**
      * @param rotation nullable, {x, y, z} in degrees, applied by bluemap as rotateYXZ around {@code rotationOrigin}
      * @param faces direction ("north", "up", ...) to uv {x1, y1, x2, y2} in 16-space

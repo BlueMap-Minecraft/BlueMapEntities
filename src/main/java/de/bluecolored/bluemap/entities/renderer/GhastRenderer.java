@@ -41,9 +41,9 @@ import de.bluecolored.bluemap.entities.entity.HappyGhast;
 public class GhastRenderer extends CustomResourceModelRenderer {
 
     private final ResourcePath<Model>
-            GHAST = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/ghast/ghast"),
-            HAPPY_GHAST = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/ghast/happy_ghast_adult"),
-            GHASTLING = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/ghast/happy_ghast_baby");
+            GHAST = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/ghast/main"),
+            HAPPY_GHAST = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/happy_ghast/main"),
+            GHASTLING = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/happy_ghast_baby/main");
 
     public GhastRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);

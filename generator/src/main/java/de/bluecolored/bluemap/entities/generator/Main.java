@@ -57,9 +57,11 @@ public final class Main {
     private static final String CONFIG_TEXTURES = "textures.json";
     private static final String CONFIG_VARIANT_MODELS = "variant-models.json";
     private static final String CONFIG_EQUIPMENT = "equipment.json";
+    private static final String CONFIG_SPLIT_PARTS = "split-parts.json";
 
     private final Arguments arguments;
     private final Report report = new Report();
+    private Map<String, Map<String, List<String>>> splitParts = Map.of();
 
     private Main(Arguments arguments) {
         this.arguments = arguments;
@@ -75,6 +77,8 @@ public final class Main {
 
         Map<ModelLayerLocation, LayerDefinition> layers = new TreeMap<>(Main::compare);
         layers.putAll(LayerDefinitions.createRoots());
+
+        splitParts = readConfig(CONFIG_SPLIT_PARTS, new TypeToken<>() {});
 
         try (McAssets assets = new McAssets(arguments.clientJar)) {
             Set<String> models = new LinkedHashSet<>();
@@ -93,6 +97,11 @@ public final class Main {
             for (Map.Entry<ModelLayerLocation, LayerDefinition> entry : layers.entrySet())
                 generate(entry.getKey(), entry.getValue(), textures, written);
 
+            for (TextureResolver.Alias alias : textures.aliases()) {
+                if (!written.contains(alias.target() + ".json")) continue;
+                write(alias.path(), ModelWriter.writeAlias(alias.target()), written);
+            }
+
             removeStale(written);
             writeIndex(written);
         }
@@ -107,7 +116,7 @@ public final class Main {
     ) throws IOException {
         String model = location.model().getPath();
         String layer = location.layer();
-        String key = location.model() + "#" + layer;
+        String key = model + "#" + layer;
 
         if (!arguments.include.matcher(key).find()) return;
         if (arguments.exclude != null && arguments.exclude.matcher(key).find()) return;
@@ -124,11 +133,30 @@ public final class Main {
         if (resolution.isEmpty()) report.unresolved(key);
         else report.resolved(key, resolution.source(), resolution.variants().size());
 
-        String base = model + "/" + layer;
-        write(base, ModelWriter.write(geometry, resolution.texture(), arguments.minecraftVersion, key), written);
+        // parts minecraft only shows sometimes (the chest of a donkey, ...) become models of their own
+        Geometry remaining = geometry;
+        for (Map.Entry<String, List<String>> group : splitParts.getOrDefault(key, Map.of()).entrySet()) {
+            Geometry parts = geometry.filter(group.getValue(), true);
+            if (parts.elements().isEmpty()) {
+                report.warning(key + ": no parts matched the split-group '" + group.getKey() + "'");
+                continue;
+            }
+
+            writeModel(model + "/" + group.getKey(), parts, resolution, key, written);
+            remaining = remaining.filter(group.getValue(), false);
+        }
+
+        writeModel(model + "/" + layer, remaining, resolution, key, written);
+    }
+
+    private void writeModel(
+            String path, Geometry geometry, TextureResolver.Resolution resolution,
+            String key, Set<String> written
+    ) throws IOException {
+        write(path, ModelWriter.write(geometry, resolution.texture(), arguments.minecraftVersion, key), written);
 
         for (TextureResolver.Variant variant : resolution.variants())
-            write(base + "_" + variant.suffix(), ModelWriter.writeVariant(base, variant.texture()), written);
+            write(path + "_" + variant.suffix(), ModelWriter.writeVariant(path, variant.texture()), written);
     }
 
     private void write(String name, String generated, Set<String> written) throws IOException {

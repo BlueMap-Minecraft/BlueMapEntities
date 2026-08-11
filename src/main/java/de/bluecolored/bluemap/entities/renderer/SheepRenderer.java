@@ -39,10 +39,10 @@ import de.bluecolored.bluemap.entities.entity.Sheep;
 public class SheepRenderer extends CustomResourceModelRenderer {
 
     private final ResourcePath<Model>
-            SHEEP_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/sheep/adult"),
-            SHEEP_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/sheep/baby"),
-            SHEEP_ADULT_WOOL = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/sheep/adult_wool"),
-            SHEEP_BABY_WOOL = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/sheep/baby_wool");
+            SHEEP_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/sheep/main"),
+            SHEEP_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/sheep_baby/main"),
+            SHEEP_ADULT_WOOL = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/sheep/wool"),
+            SHEEP_BABY_WOOL = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/sheep_baby/wool");
 
     public SheepRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);

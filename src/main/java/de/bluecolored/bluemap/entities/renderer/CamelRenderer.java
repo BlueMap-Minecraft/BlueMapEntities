@@ -40,10 +40,10 @@ import de.bluecolored.bluemap.entities.entity.CamelHusk;
 public class CamelRenderer extends CustomResourceModelRenderer {
 
     private final ResourcePath<Model>
-            CAMEL_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/camel/camel_adult"),
-            CAMEL_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/camel/camel_baby"),
-            CAMEL_HUSK_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/camel/camel_husk_adult"),
-            CAMEL_HUSK_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/camel/camel_husk_baby");
+            CAMEL_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/camel/main_camel"),
+            CAMEL_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/camel_baby/main_camel"),
+            CAMEL_HUSK_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/camel/main_husk"),
+            CAMEL_HUSK_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/camel_baby/main_husk");
 
     public CamelRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);

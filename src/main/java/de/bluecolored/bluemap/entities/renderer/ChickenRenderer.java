@@ -46,14 +46,8 @@ public class ChickenRenderer extends CustomResourceModelRenderer {
     public void render(Entity entity, BlockNeighborhood block, Part part, TileModelView tileModel) {
         if (!(entity instanceof AgeVariantEntity chicken)) return;
 
-        // craft model path based on "entity/chicken/{age}_{variant}"
-        String modelPath = "entity/chicken/";
-        if (chicken.getAge() < 0) {
-            modelPath += "baby_";
-        } else {
-            modelPath += "adult_";
-        }
-        modelPath += chicken.getRawVariant();
+        // craft model path based on "entity/chicken{age}/main_{variant}"
+        String modelPath = "entity/chicken" + (chicken.getAge() < 0 ? "_baby" : "") + "/main_" + chicken.getRawVariant();
         ResourcePath<Model> model = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, modelPath);
 
         // render chosen model

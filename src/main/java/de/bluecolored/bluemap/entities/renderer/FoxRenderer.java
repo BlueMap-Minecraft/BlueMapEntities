@@ -39,10 +39,10 @@ import de.bluecolored.bluemap.entities.entity.Fox;
 public class FoxRenderer extends CustomResourceModelRenderer {
 
     private final ResourcePath<Model>
-            FOX_ADULT_RED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/fox/adult"),
-            FOX_ADULT_SNOW = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/fox/adult_snow"),
-            FOX_BABY_RED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/fox/baby"),
-            FOX_BABY_SNOW = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/fox/baby_snow");
+            FOX_ADULT_RED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/fox/main_red"),
+            FOX_ADULT_SNOW = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/fox/main_snow"),
+            FOX_BABY_RED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/fox_baby/main_red"),
+            FOX_BABY_SNOW = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/fox_baby/main_snow");
 
     public FoxRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);

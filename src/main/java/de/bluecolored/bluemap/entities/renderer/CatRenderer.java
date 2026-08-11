@@ -46,8 +46,8 @@ public class CatRenderer extends CustomResourceModelRenderer {
     public void render(Entity entity, BlockNeighborhood block, Part part, TileModelView tileModel) {
         if (!(entity instanceof Cat cat)) return;
 
-        // choose correct model "entity/cat/color/cat_{age}_{variant}"
-        String modelPath = "entity/cat/color/cat_" + (cat.getAge() < 0 ? "baby_" : "adult_") + cat.getRawVariant();
+        // choose correct model "entity/cat{age}/main_{variant}"
+        String modelPath = "entity/cat" + (cat.getAge() < 0 ? "_baby" : "") + "/main_" + cat.getRawVariant();
         ResourcePath<Model> model = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, modelPath);
 
         // render chosen model

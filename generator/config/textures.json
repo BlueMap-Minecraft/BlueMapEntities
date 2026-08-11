@@ -28,28 +28,71 @@
     "entity/fish/tropical_b_pattern_6"
   ],
 
-  "copper_golem#main": [
-    "entity/copper_golem/copper_golem",
-    "entity/copper_golem/copper_golem_exposed",
-    "entity/copper_golem/copper_golem_weathered",
-    "entity/copper_golem/copper_golem_oxidized"
-  ],
-  "copper_golem_running#main": [
-    "entity/copper_golem/copper_golem",
-    "entity/copper_golem/copper_golem_exposed",
-    "entity/copper_golem/copper_golem_weathered",
-    "entity/copper_golem/copper_golem_oxidized"
-  ],
-  "copper_golem_sitting#main": [
-    "entity/copper_golem/copper_golem",
-    "entity/copper_golem/copper_golem_exposed",
-    "entity/copper_golem/copper_golem_weathered",
-    "entity/copper_golem/copper_golem_oxidized"
-  ],
-  "copper_golem_star#main": [
-    "entity/copper_golem/copper_golem",
-    "entity/copper_golem/copper_golem_exposed",
-    "entity/copper_golem/copper_golem_weathered",
-    "entity/copper_golem/copper_golem_oxidized"
-  ]
+  "copper_golem#main": {
+    "unaffected": "entity/copper_golem/copper_golem",
+    "exposed": "entity/copper_golem/copper_golem_exposed",
+    "weathered": "entity/copper_golem/copper_golem_weathered",
+    "oxidized": "entity/copper_golem/copper_golem_oxidized"
+  },
+  "copper_golem_running#main": {
+    "unaffected": "entity/copper_golem/copper_golem",
+    "exposed": "entity/copper_golem/copper_golem_exposed",
+    "weathered": "entity/copper_golem/copper_golem_weathered",
+    "oxidized": "entity/copper_golem/copper_golem_oxidized"
+  },
+  "copper_golem_sitting#main": {
+    "unaffected": "entity/copper_golem/copper_golem",
+    "exposed": "entity/copper_golem/copper_golem_exposed",
+    "weathered": "entity/copper_golem/copper_golem_weathered",
+    "oxidized": "entity/copper_golem/copper_golem_oxidized"
+  },
+  "copper_golem_star#main": {
+    "unaffected": "entity/copper_golem/copper_golem",
+    "exposed": "entity/copper_golem/copper_golem_exposed",
+    "weathered": "entity/copper_golem/copper_golem_weathered",
+    "oxidized": "entity/copper_golem/copper_golem_oxidized"
+  },
+
+  "fox#main": {
+    "red": "entity/fox/fox",
+    "snow": "entity/fox/fox_snow"
+  },
+  "fox_baby#main": {
+    "red": "entity/fox/fox_baby",
+    "snow": "entity/fox/fox_snow_baby"
+  },
+
+  "camel#main": {
+    "camel": "entity/camel/camel",
+    "husk": "entity/camel/camel_husk"
+  },
+  "camel_baby#main": {
+    "camel": "entity/camel/camel_baby",
+    "husk": "entity/camel/camel_husk"
+  },
+
+  "llama#main": {
+    "creamy": "entity/llama/llama_creamy",
+    "white": "entity/llama/llama_white",
+    "brown": "entity/llama/llama_brown",
+    "gray": "entity/llama/llama_gray"
+  },
+  "llama_baby#main": {
+    "creamy": "entity/llama/llama_creamy_baby",
+    "white": "entity/llama/llama_white_baby",
+    "brown": "entity/llama/llama_brown_baby",
+    "gray": "entity/llama/llama_gray_baby"
+  },
+  "trader_llama#main": {
+    "creamy": "entity/llama/llama_creamy",
+    "white": "entity/llama/llama_white",
+    "brown": "entity/llama/llama_brown",
+    "gray": "entity/llama/llama_gray"
+  },
+  "trader_llama_baby#main": {
+    "creamy": "entity/llama/llama_creamy_baby",
+    "white": "entity/llama/llama_white_baby",
+    "brown": "entity/llama/llama_brown_baby",
+    "gray": "entity/llama/llama_gray_baby"
+  }
 }

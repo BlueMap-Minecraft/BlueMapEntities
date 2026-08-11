@@ -39,8 +39,8 @@ import de.bluecolored.bluemap.entities.entity.Bee;
 public class BeeRenderer extends CustomResourceModelRenderer {
 
     private final ResourcePath<Model>
-            BEE_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/bee/adult"),
-            BEE_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/bee/baby");
+            BEE_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/bee/main"),
+            BEE_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/bee_baby/main");
 
     public BeeRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);

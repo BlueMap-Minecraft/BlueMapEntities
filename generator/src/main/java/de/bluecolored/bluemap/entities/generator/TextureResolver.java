@@ -50,10 +50,14 @@ final class TextureResolver {
     private final Map<String, String> equipmentOverrides;
     private final Set<String> knownModels;
     private final Map<String, List<Variant>> dataVariants = new TreeMap<>();
+    private final List<Alias> aliases = new ArrayList<>();
     private final List<String> warnings = new ArrayList<>();
 
     /** A texture-only variation of a model-layer, written as an additional model with the given name-suffix. */
     record Variant(String suffix, String texture) {}
+
+    /** A model that only points to another one, so variants stay reachable under the entity they belong to. */
+    record Alias(String path, String target) {}
 
     record Resolution(String texture, List<Variant> variants, String source) {
 
@@ -80,6 +84,10 @@ final class TextureResolver {
 
     List<String> warnings() {
         return Collections.unmodifiableList(warnings);
+    }
+
+    List<Alias> aliases() {
+        return Collections.unmodifiableList(aliases);
     }
 
     Resolution resolve(String model, String layer) {
@@ -118,11 +126,18 @@ final class TextureResolver {
         return new Resolution(null, List.of(), "unresolved");
     }
 
+    /** A pinned texture: a single texture, an array (suffix = texture-name) or an object (suffix = key). */
     private Resolution fromOverride(JsonElement override) {
-        if (!override.isJsonArray()) return new Resolution(override.getAsString(), List.of(), "config");
-
         List<Variant> variants = new ArrayList<>();
-        for (JsonElement texture : override.getAsJsonArray()) variants.add(variant(texture.getAsString(), null));
+
+        if (override.isJsonArray())
+            for (JsonElement texture : override.getAsJsonArray()) variants.add(variant(texture.getAsString(), null));
+        else if (override.isJsonObject())
+            override.getAsJsonObject().asMap()
+                    .forEach((suffix, texture) -> variants.add(new Variant(suffix, texture.getAsString())));
+        else
+            return new Resolution(override.getAsString(), List.of(), "config");
+
         return new Resolution(null, variants, "config");
     }
 
@@ -262,16 +277,37 @@ final class TextureResolver {
     private void indexDataVariants() {
         assets.variants().forEach((entity, variants) -> {
             for (McAssets.Variant variant : variants) {
-                String adultModel = targetModel(entity, variant.model());
-                if (adultModel == null) {
+                String model = targetModel(entity, variant.model());
+                if (model == null) {
                     if (knownModels.contains(entity))
                         warnings.add("variant " + entity + "/" + variant.name() + ": no model '" + variant.model() + "'");
                     continue;
                 }
 
-                register(adultModel, variant, variant.adult());
-                register(adultModel + BABY_SUFFIX, variant, variant.baby().isEmpty() ? variant.adult() : variant.baby());
+                Map<String, String> adult = variant.adult();
+                Map<String, String> baby = variant.baby().isEmpty() ? variant.adult() : variant.baby();
+
+                // not every variant-model has a baby-version (cold_pig has none), then the plain baby-model is used
+                String babyModel = model + BABY_SUFFIX;
+                if (!knownModels.contains(babyModel)) babyModel = entity + BABY_SUFFIX;
+
+                register(model, variant, adult);
+                register(babyModel, variant, baby);
+
+                // variants with an own model (cold_cow, cold_chicken, ...) also get an alias under the entity itself,
+                // so a renderer can always look up "entity/<entity>/main_<variant>"
+                if (model.equals(entity)) continue;
+                alias(entity, model, variant, adult);
+                alias(entity + BABY_SUFFIX, babyModel, variant, baby);
             }
+        });
+    }
+
+    private void alias(String model, String target, McAssets.Variant variant, Map<String, String> textures) {
+        if (model.equals(target) || !knownModels.contains(model) || !knownModels.contains(target)) return;
+        textures.keySet().forEach(sub -> {
+            String suffix = suffix(variant, sub);
+            aliases.add(new Alias(model + "/main_" + suffix, target + "/main_" + suffix));
         });
     }
 
@@ -279,8 +315,11 @@ final class TextureResolver {
         if (!knownModels.contains(model)) return;
 
         List<Variant> list = dataVariants.computeIfAbsent(model, key -> new ArrayList<>());
-        textures.forEach((sub, texture) ->
-                list.add(new Variant(sub.isEmpty() ? variant.name() : variant.name() + "_" + sub, texture)));
+        textures.forEach((sub, texture) -> list.add(new Variant(suffix(variant, sub), texture)));
+    }
+
+    private static String suffix(McAssets.Variant variant, String sub) {
+        return sub.isEmpty() ? variant.name() : variant.name() + "_" + sub;
     }
 
     private String targetModel(String entity, String model) {

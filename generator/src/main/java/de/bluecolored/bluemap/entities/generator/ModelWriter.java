@@ -67,6 +67,11 @@ final class ModelWriter {
         return write(ModelJson.variant(parent, texture));
     }
 
+    /** A model that is nothing but a second name for an already written one. */
+    static String writeAlias(String target) {
+        return write(ModelJson.variant(target, null));
+    }
+
     private static String write(ModelJson model) {
         StringWriter target = new StringWriter();
         try (JsonWriter writer = new JsonWriter(target)) {

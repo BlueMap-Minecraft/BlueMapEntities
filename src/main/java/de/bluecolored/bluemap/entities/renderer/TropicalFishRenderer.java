@@ -39,7 +39,7 @@ import de.bluecolored.bluemap.entities.entity.TropicalFish;
 public class TropicalFishRenderer extends CustomResourceModelRenderer {
 
     private final ResourcePath<Model>
-            TROPICAL_FISH = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/tropical_fish/tropical_fish");
+            TROPICAL_FISH = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/tropical_fish_small/main");
 
     public TropicalFishRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);

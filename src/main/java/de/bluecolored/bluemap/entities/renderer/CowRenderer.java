@@ -46,14 +46,8 @@ public class CowRenderer extends CustomResourceModelRenderer {
     public void render(Entity entity, BlockNeighborhood block, Part part, TileModelView tileModel) {
         if (!(entity instanceof AgeVariantEntity cow)) return;
 
-        // craft model path based on "entity/cow/{age}_{variant}"
-        String modelPath = "entity/cow/";
-        if (cow.getAge() < 0) {
-            modelPath += "baby_";
-        } else {
-            modelPath += "adult_";
-        }
-        modelPath += cow.getRawVariant();
+        // craft model path based on "entity/cow{age}/main_{variant}"
+        String modelPath = "entity/cow" + (cow.getAge() < 0 ? "_baby" : "") + "/main_" + cow.getRawVariant();
         ResourcePath<Model> model = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, modelPath);
 
         // render chosen model

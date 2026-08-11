@@ -48,8 +48,9 @@ public class HorseRenderer extends CustomResourceModelRenderer {
 
         boolean isBaby = horse.getAge() < 0;
 
-        // render base model "entity/horse/color/horse_{age}_{color}"
-        String baseModelPath = "entity/horse/color/horse_" + (isBaby ? "baby_" : "adult_");
+        // render base model "entity/horse{age}/main_{color}"
+        String horseModel = "entity/horse" + (isBaby ? "_baby" : "");
+        String baseModelPath = horseModel + "/main_";
         switch (horse.getBaseColor()) {
             case 0 -> baseModelPath += "white";
             case 1 -> baseModelPath += "creamy";
@@ -64,8 +65,8 @@ public class HorseRenderer extends CustomResourceModelRenderer {
         super.render(entity, block, baseModel.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
 
 
-        // render markings model "entity/horse/markings/horse_markings_{age}_{markings}" if present
-        String markingModelPath = "entity/horse/marking/horse_" + (isBaby ? "baby_" : "adult_");
+        // render markings model "entity/horse{age}/main_markings_{markings}" if present
+        String markingModelPath = horseModel + "/main_markings_";
         switch (horse.getMarkings()) {
             case 0 -> markingModelPath = null; // no markings
             case 1 -> markingModelPath += "white";

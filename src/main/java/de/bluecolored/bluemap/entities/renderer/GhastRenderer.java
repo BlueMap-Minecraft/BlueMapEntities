@@ -55,23 +55,18 @@ public class GhastRenderer extends CustomResourceModelRenderer {
 
         // choose correct model & scale
         ResourcePath<Model> model;
-        Vector3f scale;
         if (ghast instanceof HappyGhast) {
             if (((HappyGhast) ghast).getAge() < 0) {
                 model = GHASTLING;
-                scale = new Vector3f(0.9f, 0.9f, 0.9f);
             } else {
                 model = HAPPY_GHAST;
-                scale = new Vector3f(4f, 4f, 4f);
             }
         } else {
             model = GHAST;
-            scale = new Vector3f(4.5, 4.5, 4.5);
         }
 
         // render chosen model
         super.render(entity, block, model.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
-        tileModel.scale(scale.getX(), scale.getY(), scale.getZ());
 
         // apply part transform
         if (part.isTransformed())

@@ -12,13 +12,13 @@ repositories {
 }
 
 dependencies {
-    compileOnly ( "de.bluecolored:bluemap-core:5.13" )
-    compileOnly ( "org.projectlombok:lombok:1.18.32" )
-    annotationProcessor ( "org.projectlombok:lombok:1.18.32" )
+    compileOnly ( "de.bluecolored:bluemap-core:5.23" )
+    compileOnly ( "org.projectlombok:lombok:1.18.46" )
+    annotationProcessor ( "org.projectlombok:lombok:1.18.46" )
 }
 
 java {
-    toolchain.languageVersion = JavaLanguageVersion.of(21)
+    toolchain.languageVersion = JavaLanguageVersion.of(25)
     withSourcesJar()
 }
 

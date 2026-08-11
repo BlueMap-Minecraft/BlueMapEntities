@@ -59,6 +59,10 @@ public final class Main {
     private static final String CONFIG_EQUIPMENT = "equipment.json";
     private static final String CONFIG_SPLIT_PARTS = "split-parts.json";
 
+    /** worn equipment that is skipped for now */
+    private static final Set<String> SKIPPED_LAYERS = Set.of("helmet", "chestplate", "boots", "leggings");
+    private static final Set<String> SKIPPED_MODELS = Set.of("elytra", "elytra_baby");
+
     private final Arguments arguments;
     private final Report report = new Report();
     private Map<String, Map<String, List<String>>> splitParts = Map.of();
@@ -120,6 +124,7 @@ public final class Main {
 
         if (!arguments.include.matcher(key).find()) return;
         if (arguments.exclude != null && arguments.exclude.matcher(key).find()) return;
+        if (isEquipment(model, layer)) return;
 
         Geometry geometry = LayerConverter.convert(definition);
         geometry.warnings().forEach(warning -> report.warning(key + ": " + warning));
@@ -147,6 +152,10 @@ public final class Main {
         }
 
         writeModel(model + "/" + layer, remaining, resolution, key, written);
+    }
+
+    private static boolean isEquipment(String model, String layer) {
+        return SKIPPED_LAYERS.contains(layer) || SKIPPED_MODELS.contains(model) || model.endsWith("_armor");
     }
 
     private void writeModel(

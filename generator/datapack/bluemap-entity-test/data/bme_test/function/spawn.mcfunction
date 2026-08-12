@@ -51,4 +51,4 @@ execute positioned ~ ~ ~181 run function bme_test:group/prop
 execute positioned ~ ~ ~185 run function bme_test:group/boat
 execute positioned ~ ~ ~189 run function bme_test:group/chest_boat
 
-tellraw @s {"text":"[bme] spawned 350 test-entities in 49 groups","color":"green"}
+tellraw @s {"text":"[bme] spawned 351 test-entities in 49 groups","color":"green"}

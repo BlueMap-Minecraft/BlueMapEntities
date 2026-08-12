@@ -1,5 +1,10 @@
 {
   "sheep#wool": 0,
   "sheep#wool_undercoat": 0,
-  "sheep_baby#wool": 0
+  "sheep_baby#wool": 0,
+
+  "tropical_fish_small#main": 0,
+  "tropical_fish_small#pattern": 0,
+  "tropical_fish_large#main": 0,
+  "tropical_fish_large#pattern": 0
 }

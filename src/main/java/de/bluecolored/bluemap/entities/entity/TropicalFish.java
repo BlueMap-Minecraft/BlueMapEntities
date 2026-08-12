@@ -38,4 +38,21 @@ public class TropicalFish extends MCAEntity {
 
     @NBTName("Variant") int variant;
 
+    public boolean isLarge() {
+        return (variant & 0xFF) != 0;
+    }
+
+    /** 0 - 5 */
+    public int getPattern() {
+        return (variant >> 8) & 0xFF;
+    }
+
+    public int getBaseColor() {
+        return (variant >> 16) & 0xFF;
+    }
+
+    public int getPatternColor() {
+        return (variant >> 24) & 0xFF;
+    }
+
 }

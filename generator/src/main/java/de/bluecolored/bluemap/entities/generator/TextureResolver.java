@@ -219,15 +219,25 @@ final class TextureResolver {
             if (layer.equals("main")) {
                 names.add(alias);
             } else {
-                if (alias.endsWith(BABY_SUFFIX)) {
-                    names.add(base(alias) + "_" + layer + BABY_SUFFIX);
-                    names.add(base(alias) + "_" + layer + "_layer" + BABY_SUFFIX);
+                // age- and size-suffixes move behind the layer (drowned_outer_layer_baby, sulfur_cube_inner_small)
+                String suffix = suffixOf(alias);
+                if (suffix != null) {
+                    String base = alias.substring(0, alias.length() - suffix.length());
+                    names.add(base + "_" + layer + suffix);
+                    names.add(base + "_" + layer + "_layer" + suffix);
                 }
                 names.add(alias + "_" + layer);
                 names.add(alias + "_" + layer + "_layer");
             }
         }
         return names;
+    }
+
+    private static String suffixOf(String name) {
+        if (name.endsWith(BABY_SUFFIX)) return BABY_SUFFIX;
+        for (String suffix : ALIAS_SUFFIXES)
+            if (name.endsWith(suffix)) return suffix;
+        return null;
     }
 
     /** The model-id plus the shortened forms minecraft uses */

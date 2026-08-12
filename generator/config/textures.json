@@ -9,6 +9,9 @@
   "stray#outer": "entity/skeleton/stray_overlay",
   "slime#outer": "entity/slime/slime",
 
+  "sulfur_cube#main": "entity/sulfur_cube/sulfur_cube_outer",
+  "sulfur_cube_small#main": "entity/sulfur_cube/sulfur_cube_outer_small",
+
   "tropical_fish_small#main": "entity/fish/tropical_a",
   "tropical_fish_large#main": "entity/fish/tropical_b",
   "tropical_fish_small#pattern": [

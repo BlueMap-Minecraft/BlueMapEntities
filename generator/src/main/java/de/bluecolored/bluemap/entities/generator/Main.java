@@ -64,6 +64,32 @@ public final class Main {
     private static final Set<String> SKIPPED_LAYERS = Set.of("helmet", "chestplate", "boots", "leggings");
     private static final Set<String> SKIPPED_MODELS = Set.of("elytra", "elytra_baby");
 
+    /**
+     * Clothing minecraft draws onto the cubes over the main-layer
+     */
+    private record Overlay(String layer, String folder, float grow) {}
+
+    private static final List<Overlay> VILLAGER_OVERLAYS = List.of(
+            new Overlay("type", "type", 0.25f),
+            new Overlay("profession", "profession", 0.5f),
+            new Overlay("level", "profession_level", 0.75f)
+    );
+
+    /** skip babies, they cant work (yet) */
+    private static final List<Overlay> VILLAGER_TYPE_OVERLAY = List.of(VILLAGER_OVERLAYS.getFirst());
+    private static final List<Overlay> VILLAGER_BABY_OVERLAY = List.of(new Overlay("type", "baby", 0.25f));
+
+    private static final Map<String, List<Overlay>> OVERLAYS = Map.of(
+            "villager", VILLAGER_OVERLAYS,
+            "villager_no_hat", VILLAGER_TYPE_OVERLAY,
+            "villager_baby", VILLAGER_BABY_OVERLAY,
+            "villager_baby_no_hat", VILLAGER_BABY_OVERLAY,
+            "zombie_villager", VILLAGER_OVERLAYS,
+            "zombie_villager_no_hat", VILLAGER_TYPE_OVERLAY,
+            "zombie_villager_baby", VILLAGER_BABY_OVERLAY,
+            "zombie_villager_baby_no_hat", VILLAGER_BABY_OVERLAY
+    );
+
     private final Arguments arguments;
     private final Report report = new Report();
     private Map<String, Map<String, List<String>>> splitParts = Map.of();
@@ -102,7 +128,7 @@ public final class Main {
 
             Set<String> written = new TreeSet<>();
             for (Map.Entry<ModelLayerLocation, LayerDefinition> entry : layers.entrySet())
-                generate(entry.getKey(), entry.getValue(), textures, written);
+                generate(entry.getKey(), entry.getValue(), textures, assets, written);
 
             for (TextureResolver.Alias alias : textures.aliases()) {
                 if (!written.contains(alias.target() + ".json")) continue;
@@ -119,7 +145,7 @@ public final class Main {
 
     private void generate(
             ModelLayerLocation location, LayerDefinition definition,
-            TextureResolver textures, Set<String> written
+            TextureResolver textures, McAssets assets, Set<String> written
     ) throws IOException {
         String model = location.model().getPath();
         String layer = location.layer();
@@ -155,6 +181,37 @@ public final class Main {
         }
 
         writeModel(model + "/" + layer, remaining, resolution, key, written);
+
+        if (layer.equals("main")) writeOverlays(model, geometry, assets, key, written);
+    }
+
+    /** One inflated copy of the whole layer per overlay-texture-folder (one texture-variant per file) */
+    private void writeOverlays(
+            String model, Geometry geometry, McAssets assets, String key, Set<String> written
+    ) throws IOException {
+        String entity = overlayEntity(model);
+
+        for (Overlay overlay : OVERLAYS.getOrDefault(model, List.of())) {
+            List<TextureResolver.Variant> variants = new ArrayList<>();
+            for (String texture : assets.texturesIn("entity/" + entity + "/" + overlay.folder()))
+                variants.add(new TextureResolver.Variant(texture.substring(texture.lastIndexOf('/') + 1), texture));
+
+            if (variants.isEmpty()) {
+                report.warning(key + ": no textures for the overlay '" + overlay.layer() + "'");
+                continue;
+            }
+
+            String overlayKey = model + "#" + overlay.layer();
+            TextureResolver.Resolution resolution = new TextureResolver.Resolution(null, variants, "overlay");
+            report.resolved(overlayKey, resolution.source(), variants.size());
+            writeModel(model + "/" + overlay.layer(), geometry.inflate(overlay.grow()), resolution, overlayKey, written);
+        }
+    }
+
+    private static String overlayEntity(String model) {
+        if (model.endsWith("_no_hat")) model = model.substring(0, model.length() - "_no_hat".length());
+        if (model.endsWith("_baby")) model = model.substring(0, model.length() - "_baby".length());
+        return model;
     }
 
     private static boolean isEquipment(String model, String layer) {

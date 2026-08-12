@@ -17,11 +17,11 @@ public class Addon implements Runnable {
     /** all baby/adult models where "Age" is a number */
     private static final String[] AGE_TYPES = {
             "goat", "hoglin", "panda", "sniffer", "turtle", "strider",
-            "zoglin", "polar_bear", "nautilus", "villager"
+            "zoglin", "polar_bear", "nautilus"
     };
 
     /** all baby/dault models where "IsBaby" is a bool */
-    private static final String[] BABY_TYPES = { "piglin", "zombified_piglin", "zombie_villager" };
+    private static final String[] BABY_TYPES = { "piglin", "zombified_piglin" };
 
     @Override
     public void run() {
@@ -75,6 +75,8 @@ public class Addon implements Runnable {
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("pufferfish"), Pufferfish.class));
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("slime"), CubeMob.class));
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("magma_cube"), CubeMob.class));
+        EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("villager"), Villager.class));
+        EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("zombie_villager"), ZombieVillager.class));
 
 
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("llama"), LlamaRenderer::new));
@@ -127,6 +129,8 @@ public class Addon implements Runnable {
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("pufferfish"), PufferfishRenderer::new));
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("slime"), CubeRenderer::new));
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("magma_cube"), CubeRenderer::new));
+        EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("villager"), VillagerRenderer::new));
+        EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("zombie_villager"), VillagerRenderer::new));
     }
 
 }

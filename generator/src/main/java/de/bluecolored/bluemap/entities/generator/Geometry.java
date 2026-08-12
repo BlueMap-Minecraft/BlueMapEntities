@@ -44,6 +44,28 @@ record Geometry(int textureWidth, int textureHeight, List<Element> elements, Lis
         return parts.stream().anyMatch(part -> name.equals(part) || name.startsWith(part + "/") || name.startsWith(part + "_"));
     }
 
+    Geometry inflate(float grow) {
+        if (grow == 0) return this;
+
+        List<Element> grown = elements.stream()
+                .map(element -> new Element(
+                        element.name(),
+                        offset(element.from(), -grow),
+                        offset(element.to(), grow),
+                        element.rotation(),
+                        element.rotationOrigin(),
+                        element.faces()
+                ))
+                .toList();
+        return new Geometry(textureWidth, textureHeight, grown, warnings);
+    }
+
+    private static float[] offset(float[] position, float amount) {
+        float[] offset = new float[position.length];
+        for (int i = 0; i < position.length; i++) offset[i] = position[i] + amount;
+        return offset;
+    }
+
     /**
      * @param rotation nullable, {x, y, z} in degrees, applied by bluemap as rotateYXZ around {@code rotationOrigin}
      * @param faces direction ("north", "up", ...) to uv {x1, y1, x2, y2} in 16-space

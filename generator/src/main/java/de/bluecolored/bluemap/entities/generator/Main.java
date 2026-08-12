@@ -129,7 +129,7 @@ public final class Main {
         if (arguments.exclude != null && arguments.exclude.matcher(key).find()) return;
         if (isEquipment(model, layer)) return;
 
-        Geometry geometry = LayerConverter.convert(definition);
+        Geometry geometry = LayerConverter.convert(definition, LayerConverter.yOffset(model));
         geometry.warnings().forEach(warning -> report.warning(key + ": " + warning));
 
         if (geometry.elements().isEmpty()) {

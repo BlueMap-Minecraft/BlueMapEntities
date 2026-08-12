@@ -46,20 +46,43 @@ final class LayerConverter {
 
     private static final float[] FLIP = { -1, -1, 1 };
     private static final float Y_OFFSET = 24;
+
+    /**
+     * Some models have hardcoded offsets just to annoy me
+     */
+    private static final Map<String, Float> Y_OFFSETS = Map.of(
+            "boat", 6f,
+            "chest_boat", 6f,
+            "minecart", 6f,
+            "ender_dragon", 52f,
+            "sulfur_cube", 8f
+    );
     private static final float POSITION_EPSILON = 1e-3f;
     private static final float ANGLE_EPSILON = 1e-4f;
     private static final String[] DIRECTIONS = { "down", "up", "north", "south", "west", "east" };
 
     private LayerConverter() {}
 
-    static Geometry convert(LayerDefinition layer) {
+    static float yOffset(String model) {
+        String family = model.contains("/") ? model.substring(0, model.indexOf('/')) : model;
+        Float offset = Y_OFFSETS.get(family);
+        if (offset == null && family.endsWith("_minecart")) offset = Y_OFFSETS.get("minecart");
+        if (offset == null && family.endsWith("_small")) offset = Y_OFFSETS.get(base(family));
+        return offset != null ? offset : Y_OFFSET;
+    }
+
+    private static String base(String family) {
+        return family.substring(0, family.lastIndexOf('_'));
+    }
+
+    static Geometry convert(LayerDefinition layer, float yOffset) {
         int[] textureSize = textureSize(layer);
         List<Geometry.Element> elements = new ArrayList<>();
         List<String> warnings = new ArrayList<>();
 
         layer.bakeRoot().visit(new PoseStack(), (pose, path, index, cube) -> {
             String name = name(path, index);
-            Geometry.Element element = convertCube(pose.pose(), name, cube, warnings);
+            Geometry.Element element = convertCube(pose.pose(), name, cube, yOffset, warnings);
             if (finite(element)) elements.add(element);
             else warnings.add(name + ": dropped, contains a non-finite coordinate");
         });
@@ -88,7 +111,7 @@ final class LayerConverter {
         return index == 0 ? name : name + "_" + index;
     }
 
-    private static Geometry.Element convertCube(Matrix4f matrix, String name, ModelPart.Cube cube, List<String> warnings) {
+    private static Geometry.Element convertCube(Matrix4f matrix, String name, ModelPart.Cube cube, float yOffset, List<String> warnings) {
 
         // linear part of the accumulated part-transform, columns are the local axes
         float[][] linear = {
@@ -120,7 +143,7 @@ final class LayerConverter {
         // the parts pivot becomes the rotation-origin of the element
         float[] origin = {
                 FLIP[0] * matrix.m30() * 16,
-                FLIP[1] * matrix.m31() * 16 + Y_OFFSET,
+                FLIP[1] * matrix.m31() * 16 + yOffset,
                 FLIP[2] * matrix.m32() * 16
         };
 

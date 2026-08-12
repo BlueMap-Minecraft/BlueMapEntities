@@ -58,6 +58,7 @@ public final class Main {
     private static final String CONFIG_VARIANT_MODELS = "variant-models.json";
     private static final String CONFIG_EQUIPMENT = "equipment.json";
     private static final String CONFIG_SPLIT_PARTS = "split-parts.json";
+    private static final String CONFIG_TINTS = "tints.json";
 
     /** worn equipment that is skipped for now */
     private static final Set<String> SKIPPED_LAYERS = Set.of("helmet", "chestplate", "boots", "leggings");
@@ -66,6 +67,7 @@ public final class Main {
     private final Arguments arguments;
     private final Report report = new Report();
     private Map<String, Map<String, List<String>>> splitParts = Map.of();
+    private Map<String, Integer> tints = Map.of();
 
     private Main(Arguments arguments) {
         this.arguments = arguments;
@@ -83,6 +85,7 @@ public final class Main {
         layers.putAll(LayerDefinitions.createRoots());
 
         splitParts = readConfig(CONFIG_SPLIT_PARTS, new TypeToken<>() {});
+        tints = readConfig(CONFIG_TINTS, new TypeToken<>() {});
 
         try (McAssets assets = new McAssets(arguments.clientJar)) {
             Set<String> models = new LinkedHashSet<>();
@@ -162,7 +165,7 @@ public final class Main {
             String path, Geometry geometry, TextureResolver.Resolution resolution,
             String key, Set<String> written
     ) throws IOException {
-        write(path, ModelWriter.write(geometry, resolution.texture(), arguments.minecraftVersion, key), written);
+        write(path, ModelWriter.write(geometry, resolution.texture(), arguments.minecraftVersion, key, tints.get(key)), written);
 
         for (TextureResolver.Variant variant : resolution.variants())
             write(path + "_" + variant.suffix(), ModelWriter.writeVariant(path, variant.texture()), written);

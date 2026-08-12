@@ -185,6 +185,12 @@ final class TextureResolver {
             candidates.add("entity/" + base + "/" + base);
             candidates.add("entity/" + base);
         } else {
+            // baby-textures of a layer keep the baby-suffix last
+            if (!model.equals(base)) {
+                candidates.add("entity/" + base + "/" + base + "_" + layer + BABY_SUFFIX);
+                candidates.add("entity/" + base + "/" + layer + BABY_SUFFIX);
+            }
+
             candidates.add("entity/" + base + "/" + model + "_" + layer);
             candidates.add("entity/" + base + "/" + base + "_" + layer);
             candidates.add("entity/" + model + "/" + model + "_" + layer);

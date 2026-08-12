@@ -58,8 +58,8 @@ final class ModelWriter {
 
     private ModelWriter() {}
 
-    static String write(Geometry geometry, String texture, String minecraftVersion, String layer) {
-        return write(ModelJson.geometry(geometry, texture, minecraftVersion, layer));
+    static String write(Geometry geometry, String texture, String minecraftVersion, String layer, Integer tintindex) {
+        return write(ModelJson.geometry(geometry, texture, minecraftVersion, layer, tintindex));
     }
 
     /** A texture-variant of an already written model, which only overrides its texture. */
@@ -84,7 +84,8 @@ final class ModelWriter {
     }
 
     private static String inline(ModelJson.Face face) {
-        return "{\"uv\": " + inline(face.uv()) + ", \"texture\": \"" + face.texture() + "\"}";
+        return "{\"uv\": " + inline(face.uv()) + ", \"texture\": \"" + face.texture() + "\""
+                + (face.tintindex() == null ? "" : ", \"tintindex\": " + face.tintindex()) + "}";
     }
 
     private static String inline(float[] values) {

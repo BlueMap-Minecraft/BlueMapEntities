@@ -51,10 +51,10 @@ record ModelJson(
     /** Either axis/angle (single-axis, understood by older bluemap-versions too) or the x/y/z euler-angles. */
     record Rotation(Float angle, String axis, Float x, Float y, Float z, float[] origin) {}
 
-    record Face(float[] uv, String texture) {}
+    record Face(float[] uv, String texture, Integer tintindex) {}
 
-    static ModelJson geometry(Geometry geometry, String texture, String minecraftVersion, String layer) {
-        List<Element> elements = geometry.elements().stream().map(ModelJson::element).toList();
+    static ModelJson geometry(Geometry geometry, String texture, String minecraftVersion, String layer, Integer tintindex) {
+        List<Element> elements = geometry.elements().stream().map(element -> element(element, tintindex)).toList();
         return new ModelJson(
                 minecraftVersion,
                 "Generated from minecraft " + minecraftVersion + " (" + layer + ")",
@@ -70,9 +70,9 @@ record ModelJson(
         return new ModelJson(null, null, null, "minecraft:entity/" + parent, textures, null);
     }
 
-    private static Element element(Geometry.Element element) {
+    private static Element element(Geometry.Element element, Integer tintindex) {
         Map<String, Face> faces = new LinkedHashMap<>();
-        element.faces().forEach((direction, uv) -> faces.put(direction, new Face(uv, "#0")));
+        element.faces().forEach((direction, uv) -> faces.put(direction, new Face(uv, "#0", tintindex)));
 
         return new Element(
                 element.name(),

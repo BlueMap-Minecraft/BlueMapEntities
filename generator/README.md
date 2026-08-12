@@ -25,4 +25,5 @@ from, and which layers could not be resolved.
 | `config/variant-models.json` | maps the `model` field to its model-id                                        |
 | `config/equipment.json`      | maps a layer to a folder in `entity/equipment`                                |
 | `config/split-parts.json`    | in model variants (like chests on horse-ish mobs)                             |
+| `config/tints.json`          | writes a `tintindex` on every face of a layer, colored by its renderer        |
 | `overrides/<path>.json`      | replacing for manual edited entities                                          |

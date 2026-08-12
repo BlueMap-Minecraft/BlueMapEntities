@@ -60,3 +60,53 @@ bluemap-configs. You will need to purge/re-render the map to see the entities ap
 - Frog
   - Tadpole
 - Armadillo
+- Wolf
+- Rabbit
+- Parrot
+- Mooshroom
+- Goat
+- Panda
+- Sniffer
+- Turtle
+- Polar Bear
+- Nautilus
+  - Zombie Nautilus
+- Villager
+  - Zombie Villager
+  - Wandering Trader
+- Piglin
+  - Piglin Brute
+  - Zombified Piglin
+- Hoglin
+  - Zoglin
+- Strider
+- *Monsters*
+  - Creeper
+  - Spider
+  - Cave Spider
+  - Silverfish
+  - Endermite
+  - Enderman
+  - Blaze
+  - Witch
+  - Evoker
+  - Vindicator
+  - Pillager
+  - Illusioner
+  - Phantom
+  - Shulker
+  - Creaking
+  - Ravager
+  - Warden
+  - Wither
+  - Elder Guardian
+  - Giant
+  - Slime
+  - Magma Cube
+  - Sulfur Cube
+  - Ender Dragon
+- *Props*
+  - Armor Stand
+  - End Crystal
+  - Minecart (all types)
+  - Boat / Chest Boat (all woods)

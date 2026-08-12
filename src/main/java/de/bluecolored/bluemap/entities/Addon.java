@@ -72,6 +72,8 @@ public class Addon implements Runnable {
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("salmon"), Salmon.class));
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("armor_stand"), ArmorStand.class));
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("pufferfish"), Pufferfish.class));
+        EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("slime"), CubeMob.class));
+        EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("magma_cube"), CubeMob.class));
 
 
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("llama"), LlamaRenderer::new));
@@ -121,6 +123,8 @@ public class Addon implements Runnable {
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("salmon"), SalmonRenderer::new));
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("armor_stand"), ArmorStandRenderer::new));
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("pufferfish"), PufferfishRenderer::new));
+        EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("slime"), CubeRenderer::new));
+        EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("magma_cube"), CubeRenderer::new));
     }
 
 }

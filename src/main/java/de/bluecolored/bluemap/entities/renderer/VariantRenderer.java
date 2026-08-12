@@ -45,9 +45,14 @@ public class VariantRenderer extends CustomResourceModelRenderer {
         if (!(entity instanceof AgeVariantEntity variant)) return;
 
         // model-folder is the entity-type itself, "entity/{type}{age}/main_{variant}"
-        String folder = "entity/" + entity.getId().getValue() + (variant.getAge() < 0 ? "_baby" : "");
+        String type = "entity/" + entity.getId().getValue();
+        String folder = variant.getAge() < 0 ? type + "_baby" : type;
+
+        // not every type has a baby-model, and not every variant has an own model
         Model model = model(folder + "/main_" + variant.getRawVariant());
+        if (model == null) model = model(type + "/main_" + variant.getRawVariant());
         if (model == null) model = model(folder + "/main");
+        if (model == null) model = model(type + "/main");
         if (model == null) return;
 
         super.render(entity, block, model, TintColorProvider.NO_TINT, tileModel);

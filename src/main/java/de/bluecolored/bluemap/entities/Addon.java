@@ -66,6 +66,7 @@ public class Addon implements Runnable {
         for (String type : BABY_TYPES)
             EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft(type), BabyEntity.class));
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("mooshroom"), Mooshroom.class));
+        EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("zombie_nautilus"), AgeVariantEntity.class));
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("rabbit"), Rabbit.class));
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("parrot"), Parrot.class));
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("wolf"), Wolf.class));
@@ -117,6 +118,7 @@ public class Addon implements Runnable {
         for (String type : BABY_TYPES)
             EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft(type), BabyRenderer::new));
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("mooshroom"), VariantRenderer::new));
+        EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("zombie_nautilus"), VariantRenderer::new));
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("rabbit"), VariantRenderer::new));
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("parrot"), VariantRenderer::new));
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("wolf"), WolfRenderer::new));

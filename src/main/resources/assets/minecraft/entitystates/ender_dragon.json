@@ -1,0 +1,5 @@
+{
+  "parts": [
+    { "model": "minecraft:entity/ender_dragon/main" }
+  ]
+}

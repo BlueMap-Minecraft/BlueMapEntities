@@ -48,6 +48,7 @@ import de.bluecolored.bluemap.core.world.Entity;
 import de.bluecolored.bluemap.core.world.LightData;
 import de.bluecolored.bluemap.core.world.block.BlockNeighborhood;
 import lombok.Getter;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.function.Function;
 
@@ -80,6 +81,11 @@ public class CustomResourceModelRenderer implements EntityRenderer {
 
         for (int i = 0; i < corners.length; i++) corners[i] = new VectorM3f(0, 0, 0);
         for (int i = 0; i < rawUvs.length; i++) rawUvs[i] = new VectorM2f(0, 0);
+    }
+
+    @Nullable
+    protected Model model(String path) {
+        return new ResourcePath<Model>(Key.MINECRAFT_NAMESPACE, path).getResource(modelProvider);
     }
 
     @Override

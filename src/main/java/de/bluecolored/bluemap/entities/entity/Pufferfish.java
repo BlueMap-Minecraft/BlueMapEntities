@@ -24,9 +24,26 @@
  */
 package de.bluecolored.bluemap.entities.entity;
 
+import de.bluecolored.bluemap.core.world.mca.entity.MCAEntity;
+import de.bluecolored.bluenbt.NBTName;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.ToString;
 
+@Getter
 @EqualsAndHashCode(callSuper = true)
 @ToString
-public class Zombie extends BabyEntity {}
+@SuppressWarnings("FieldMayBeFinal")
+public class Pufferfish extends MCAEntity {
+
+    @NBTName("PuffState") int puffState;
+
+    /** The three puff-states are separate models instead of a variant-suffix. */
+    public String getModel() {
+        return switch (puffState) {
+            case 1 -> "pufferfish_medium";
+            case 2 -> "pufferfish_big";
+            default -> "pufferfish_small";
+        };
+    }
+}

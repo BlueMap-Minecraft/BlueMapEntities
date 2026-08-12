@@ -24,9 +24,30 @@
  */
 package de.bluecolored.bluemap.entities.entity;
 
+import de.bluecolored.bluenbt.NBTName;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.ToString;
 
+@Getter
 @EqualsAndHashCode(callSuper = true)
 @ToString
-public class Zombie extends BabyEntity {}
+@SuppressWarnings("FieldMayBeFinal")
+public class Rabbit extends AgeVariantEntity {
+
+    @NBTName("RabbitType") int rabbitType;
+
+    /** Rabbits keep their variant as a number, the killer-bunny is 99. */
+    @Override
+    public String getRawVariant() {
+        return switch (rabbitType) {
+            case 1 -> "white";
+            case 2 -> "black";
+            case 3 -> "white_splotched";
+            case 4 -> "gold";
+            case 5 -> "salt";
+            case 99 -> "caerbannog";
+            default -> "brown";
+        };
+    }
+}

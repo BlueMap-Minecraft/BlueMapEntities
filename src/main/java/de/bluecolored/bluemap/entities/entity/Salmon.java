@@ -24,9 +24,27 @@
  */
 package de.bluecolored.bluemap.entities.entity;
 
+import de.bluecolored.bluemap.core.world.mca.entity.MCAEntity;
+import de.bluecolored.bluenbt.NBTName;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.ToString;
 
+@Getter
 @EqualsAndHashCode(callSuper = true)
 @ToString
-public class Zombie extends BabyEntity {}
+@SuppressWarnings("FieldMayBeFinal")
+public class Salmon extends MCAEntity {
+
+    @NBTName("type") String type;
+
+    /** The model-folder of this salmon, sizes are separate models instead of a variant-suffix. */
+    public String getModel() {
+        if (type == null) return "salmon";
+        return switch (type) {
+            case "small" -> "salmon_small";
+            case "large" -> "salmon_large";
+            default -> "salmon";
+        };
+    }
+}

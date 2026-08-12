@@ -24,9 +24,22 @@
  */
 package de.bluecolored.bluemap.entities.entity;
 
+import de.bluecolored.bluenbt.NBTName;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.ToString;
 
+@Getter
 @EqualsAndHashCode(callSuper = true)
 @ToString
-public class Zombie extends BabyEntity {}
+@SuppressWarnings("FieldMayBeFinal")
+public class Mooshroom extends AgeVariantEntity {
+
+    @NBTName("Type") String type;
+
+    /** Mooshrooms keep their variant in "Type" and without a namespace. */
+    @Override
+    public String getRawVariant() {
+        return type == null || type.isEmpty() ? "red" : type;
+    }
+}

@@ -1,0 +1,6 @@
+{
+  "parts": [
+    { "model": "minecraft:entity/slime/main" },
+    { "model": "minecraft:entity/slime/outer" }
+  ]
+}

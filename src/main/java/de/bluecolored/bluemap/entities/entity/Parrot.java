@@ -24,9 +24,28 @@
  */
 package de.bluecolored.bluemap.entities.entity;
 
+import de.bluecolored.bluenbt.NBTName;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.ToString;
 
+@Getter
 @EqualsAndHashCode(callSuper = true)
 @ToString
-public class Zombie extends BabyEntity {}
+@SuppressWarnings("FieldMayBeFinal")
+public class Parrot extends AgeVariantEntity {
+
+    @NBTName("Variant") int parrotVariant;
+
+    /** Parrots keep their variant as a number, the grey one is spelled the british way. */
+    @Override
+    public String getRawVariant() {
+        return switch (parrotVariant) {
+            case 1 -> "blue";
+            case 2 -> "green";
+            case 3 -> "yellow_blue";
+            case 4 -> "grey";
+            default -> "red_blue";
+        };
+    }
+}

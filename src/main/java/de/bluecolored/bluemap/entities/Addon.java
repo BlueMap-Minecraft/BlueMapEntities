@@ -14,6 +14,15 @@ public class Addon implements Runnable {
 
     public static Logger LOGGER = Logger.getLogger("BlueMap Entities Addon");
 
+    /** all baby/adult models where "Age" is a number */
+    private static final String[] AGE_TYPES = {
+            "goat", "hoglin", "panda", "sniffer", "turtle", "strider",
+            "zoglin", "polar_bear", "nautilus", "villager"
+    };
+
+    /** all baby/dault models where "IsBaby" is a bool */
+    private static final String[] BABY_TYPES = { "piglin", "zombified_piglin", "zombie_villager" };
+
     @Override
     public void run() {
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("llama"), Llama.class));
@@ -52,6 +61,17 @@ public class Addon implements Runnable {
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("frog"), AgeVariantEntity.class));
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("ghast"), MCAEntity.class));
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("happy_ghast"), HappyGhast.class));
+        for (String type : AGE_TYPES)
+            EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft(type), AgeEntity.class));
+        for (String type : BABY_TYPES)
+            EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft(type), BabyEntity.class));
+        EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("mooshroom"), Mooshroom.class));
+        EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("rabbit"), Rabbit.class));
+        EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("parrot"), Parrot.class));
+        EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("wolf"), Wolf.class));
+        EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("salmon"), Salmon.class));
+        EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("armor_stand"), ArmorStand.class));
+        EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("pufferfish"), Pufferfish.class));
 
 
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("llama"), LlamaRenderer::new));
@@ -90,6 +110,17 @@ public class Addon implements Runnable {
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("frog"), FrogRenderer::new));
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("ghast"), GhastRenderer::new));
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("happy_ghast"), GhastRenderer::new));
+        for (String type : AGE_TYPES)
+            EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft(type), AgeRenderer::new));
+        for (String type : BABY_TYPES)
+            EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft(type), BabyRenderer::new));
+        EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("mooshroom"), VariantRenderer::new));
+        EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("rabbit"), VariantRenderer::new));
+        EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("parrot"), VariantRenderer::new));
+        EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("wolf"), WolfRenderer::new));
+        EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("salmon"), SalmonRenderer::new));
+        EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("armor_stand"), ArmorStandRenderer::new));
+        EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("pufferfish"), PufferfishRenderer::new));
     }
 
 }

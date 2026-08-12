@@ -113,9 +113,10 @@ final class TextureResolver {
         if (!family.isEmpty()) return new Resolution(null, family, "texture-family");
 
         List<String> fromClasses = fromRendererClasses(model, layer);
-        for (String candidate : fromClasses)
-            if (names(model, layer).contains(candidate.substring(candidate.lastIndexOf('/') + 1)))
-                return new Resolution(candidate, List.of(), "renderer-class");
+        for (String name : names(model, layer))
+            for (String candidate : fromClasses)
+                if (compact(candidate.substring(candidate.lastIndexOf('/') + 1)).equals(compact(name)))
+                    return new Resolution(candidate, List.of(), "renderer-class");
         if (fromClasses.size() == 1) return new Resolution(fromClasses.getFirst(), List.of(), "renderer-class");
         if (!fromClasses.isEmpty()) {
             List<Variant> variants = new ArrayList<>();
@@ -347,6 +348,11 @@ final class TextureResolver {
     private static Variant variant(String texture, String suffix) {
         if (suffix != null) return new Variant(suffix, texture);
         return new Variant(texture.substring(texture.lastIndexOf('/') + 1), texture);
+    }
+
+    /** Where is the _ in polarbear? WHERE? CODE HAS IT!! */
+    private static String compact(String name) {
+        return name.replace("_", "");
     }
 
     private static String base(String model) {

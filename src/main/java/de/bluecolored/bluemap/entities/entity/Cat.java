@@ -36,4 +36,10 @@ import lombok.ToString;
 public class Cat extends AgeVariantEntity {
 
     @NBTName("Sitting") boolean sitting;
+    @NBTName("CollarColor") byte collarColor;
+    @NBTName("Owner") int[] owner;
+
+    public boolean isTame() {
+        return owner != null && owner.length > 0;
+    }
 }

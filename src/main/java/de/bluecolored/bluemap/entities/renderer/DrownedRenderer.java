@@ -40,7 +40,9 @@ public class DrownedRenderer extends CustomResourceModelRenderer {
 
     private final ResourcePath<Model>
             ZOMBIE_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/drowned/main"),
-            ZOMBIE_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/drowned_baby/main");
+            ZOMBIE_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/drowned_baby/main"),
+            ZOMBIE_ADULT_OUTER = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/drowned/outer"),
+            ZOMBIE_BABY_OUTER = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/drowned_baby/outer");
 
     public DrownedRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);
@@ -51,15 +53,18 @@ public class DrownedRenderer extends CustomResourceModelRenderer {
         if (!(entity instanceof Zombie drowned)) return;
 
         // choose correct model
-        ResourcePath<Model> model;
+        ResourcePath<Model> model, outerModel;
         if (drowned.isBaby()) {
             model = ZOMBIE_BABY;
+            outerModel = ZOMBIE_BABY_OUTER;
         } else {
             model = ZOMBIE_ADULT;
+            outerModel = ZOMBIE_ADULT_OUTER;
         }
 
-        // render chosen model
+        // render chosen model and its overlay layer
         super.render(entity, block, model.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
+        super.render(entity, block, outerModel.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
 
         // apply part transform
         if (part.isTransformed())

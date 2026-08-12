@@ -218,6 +218,10 @@ final class TextureResolver {
             if (layer.equals("main")) {
                 names.add(alias);
             } else {
+                if (alias.endsWith(BABY_SUFFIX)) {
+                    names.add(base(alias) + "_" + layer + BABY_SUFFIX);
+                    names.add(base(alias) + "_" + layer + "_layer" + BABY_SUFFIX);
+                }
                 names.add(alias + "_" + layer);
                 names.add(alias + "_" + layer + "_layer");
             }

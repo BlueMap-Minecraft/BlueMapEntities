@@ -43,7 +43,9 @@ public class SkeletonRenderer extends CustomResourceModelRenderer {
             WITHER_SKELETON = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/wither_skeleton/main"),
             STRAY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/stray/main"),
             BOGGED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/bogged/main"),
-            PARCHED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/parched/main");
+            PARCHED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/parched/main"),
+            STRAY_OUTER = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/stray/outer"),
+            BOGGED_OUTER = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/bogged/outer");
 
     public SkeletonRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);
@@ -64,6 +66,15 @@ public class SkeletonRenderer extends CustomResourceModelRenderer {
 
         // render chosen model
         super.render(entity, block, model.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
+
+        // render overlay layer, parched has no overlay-texture
+        ResourcePath<Model> outerModel = switch (skeleton) {
+            case Stray ignored -> STRAY_OUTER;
+            case Bogged ignored -> BOGGED_OUTER;
+            default -> null;
+        };
+        if (outerModel != null)
+            super.render(entity, block, outerModel.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
 
         // apply part transform
         if (part.isTransformed())

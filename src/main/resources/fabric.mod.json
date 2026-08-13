@@ -12,6 +12,6 @@
     ]
   },
   "depends": {
-    "bluemap": ">=5.23"
+    "bluemap": ">=5.21"
   }
 }

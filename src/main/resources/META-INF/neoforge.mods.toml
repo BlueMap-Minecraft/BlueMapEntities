@@ -11,6 +11,6 @@ description = "Render entities like monsters, animals & boats on your bluemap wi
 [[dependencies.bluemap_entities]]
 modId = "bluemap"
 type = "required"
-versionRange = "[5,)"
+versionRange = "[5.21,)"
 ordering = "NONE"
 side = "BOTH"

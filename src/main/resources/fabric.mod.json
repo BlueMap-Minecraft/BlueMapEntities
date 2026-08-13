@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "bluemap_entities",
+  "version": "${version}",
+  "name": "BlueMap Entities",
+  "description": "Render entities like monsters, animals & boats on your bluemap with the full model",
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "de.bluecolored.bluemap.entities.Addon::init"
+    ]
+  },
+  "depends": {
+    "bluemap": ">=5.23"
+  }
+}

@@ -23,6 +23,11 @@ public class Addon implements Runnable {
     /** all baby/dault models where "IsBaby" is a bool */
     private static final String[] BABY_TYPES = { "piglin", "zombified_piglin" };
 
+    /** entrypoint when loaded as non-native addon */
+    public static void init() {
+        new Addon().run();
+    }
+
     @Override
     public void run() {
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("llama"), Llama.class));

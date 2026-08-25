@@ -1,0 +1,5 @@
+name: BlueMapEntities
+version: ${version}
+api-version: '26.1.2'
+main: de.bluecolored.bluemap.entities.PaperEntrypoint
+description: Render entities like monsters, animals & boats on your bluemap with the full model

@@ -4,12 +4,13 @@ plugins {
 }
 
 group = "de.bluecolored.bluemap.entities"
-version = "1.3"
+version = "1.5"
 
 repositories {
     mavenCentral()
     maven ( "https://repo.bluecolored.de/releases" )
     maven ( "https://maven.neoforged.net/releases" )
+    maven ( "https://repo.papermc.io/repository/maven-public/" )
 }
 
 dependencies {
@@ -20,6 +21,9 @@ dependencies {
     // only for the @Mod annotation (neo)
     compileOnly ( "net.neoforged.fancymodloader:loader:11.0.17" ) { isTransitive = false }
     compileOnly ( "net.neoforged:mergetool:2.0.0:api" ) { isTransitive = false }
+
+    // only to warn if the addon is loaded as a paper-plugin
+    compileOnly ( "io.papermc.paper:paper-api:26.1.2.build.+" )
 }
 
 java {
@@ -34,7 +38,7 @@ tasks.withType(JavaCompile::class).configureEach {
 tasks.processResources {
     val props = mapOf("version" to project.version)
     inputs.properties(props)
-    filesMatching(listOf("fabric.mod.json", "META-INF/neoforge.mods.toml")) { expand(props) }
+    filesMatching(listOf("fabric.mod.json", "META-INF/neoforge.mods.toml", "plugin.yml")) { expand(props) }
 }
 
 tasks.withType(AbstractArchiveTask::class).configureEach {

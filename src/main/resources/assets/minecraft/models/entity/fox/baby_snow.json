@@ -1,6 +1,0 @@
-{
-  "parent": "entity/fox/baby",
-  "textures": {
-    "0": "entity/fox/snow_fox"
-  }
-}

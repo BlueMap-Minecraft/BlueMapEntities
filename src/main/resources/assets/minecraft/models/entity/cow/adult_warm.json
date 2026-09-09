@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:entity/cow/adult",
-  "textures": {
-    "0": "entity/cow/warm_cow"
-  }
-}

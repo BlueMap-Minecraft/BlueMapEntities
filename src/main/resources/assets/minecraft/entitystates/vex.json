@@ -1,5 +1,5 @@
 {
   "parts": [
-    { "model": "minecraft:entity/vex" }
+    { "model": "minecraft:entity/vex/main" }
   ]
 }

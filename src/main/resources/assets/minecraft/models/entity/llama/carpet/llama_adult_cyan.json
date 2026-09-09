@@ -1,6 +1,0 @@
-{
-  "parent": "entity/llama/llama_carpet",
-  "textures": {
-    "0": "entity/equipment/llama_body/cyan"
-  }
-}

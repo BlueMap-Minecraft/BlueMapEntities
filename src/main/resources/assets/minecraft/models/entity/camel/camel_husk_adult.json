@@ -1,6 +1,0 @@
-{
-  "parent": "entity/camel/camel_adult",
-  "textures": {
-    "0": "entity/camel/camel_husk"
-  }
-}

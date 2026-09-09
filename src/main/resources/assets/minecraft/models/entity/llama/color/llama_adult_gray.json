@@ -1,6 +1,0 @@
-{
-  "parent": "entity/llama/llama",
-  "textures": {
-    "0": "entity/llama/gray"
-  }
-}

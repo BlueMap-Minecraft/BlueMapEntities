@@ -1,4 +1,7 @@
 {
+  "armadillo#main": { "scared": ["cube"] },
+  "armadillo_baby#main": { "scared": ["cube"] },
+
   "donkey#main": { "chest": ["body/left_chest", "body/right_chest"] },
   "mule#main": { "chest": ["body/left_chest", "body/right_chest"] },
 

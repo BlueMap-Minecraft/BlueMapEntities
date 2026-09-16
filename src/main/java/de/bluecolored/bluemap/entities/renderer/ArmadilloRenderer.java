@@ -41,8 +41,8 @@ public class ArmadilloRenderer extends CustomResourceModelRenderer {
     private final ResourcePath<Model>
             ARMADILLO_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/armadillo/main"),
             ARMADILLO_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/armadillo_baby/main"),
-            ARMADILLO_ADULT_SCARED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/armadillo/armadillo_adult_scared"),
-            ARMADILLO_BABY_SCARED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/armadillo/armadillo_baby_scared");
+            ARMADILLO_ADULT_SCARED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/armadillo/scared"),
+            ARMADILLO_BABY_SCARED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/armadillo_baby/scared");
 
     public ArmadilloRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);
@@ -52,20 +52,10 @@ public class ArmadilloRenderer extends CustomResourceModelRenderer {
     public void render(Entity entity, BlockNeighborhood block, Part part, TileModelView tileModel) {
         if (!(entity instanceof Armadillo armadillo)) return;
 
-        // choose correct model
-        ResourcePath<Model> model;
         boolean isBaby = armadillo.getAge() < 0;
-        switch (armadillo.getState()) {
-            case IDLE -> {
-                if (isBaby) model = ARMADILLO_BABY;
-                else model = ARMADILLO_ADULT;
-            }
-            case SCARED -> {
-                if (isBaby) model = ARMADILLO_BABY_SCARED;
-                else model = ARMADILLO_ADULT_SCARED;
-            }
-            default -> model = ARMADILLO_ADULT;
-        }
+        ResourcePath<Model> model = armadillo.getState() == Armadillo.State.SCARED
+                ? (isBaby ? ARMADILLO_BABY_SCARED : ARMADILLO_ADULT_SCARED)
+                : (isBaby ? ARMADILLO_BABY : ARMADILLO_ADULT);
 
         // render chosen model
         super.render(entity, block, model.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);

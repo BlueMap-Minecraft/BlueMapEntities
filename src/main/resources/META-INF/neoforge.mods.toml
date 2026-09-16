@@ -1,0 +1,17 @@
+modLoader = "javafml"
+loaderVersion = "[1,)"
+license = "MIT"
+
+[[mods]]
+modId = "bluemap_entities"
+version = "${version}"
+displayName = "BlueMap Entities"
+description = "Render entities like monsters, animals & boats on your bluemap with the full model"
+logoFile = "assets/bluemap_entities/icon.png"
+
+[[dependencies.bluemap_entities]]
+modId = "bluemap"
+type = "required"
+versionRange = "[5.21,)"
+ordering = "NONE"
+side = "BOTH"

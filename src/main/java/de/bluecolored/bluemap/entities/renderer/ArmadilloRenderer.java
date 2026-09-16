@@ -39,8 +39,8 @@ import de.bluecolored.bluemap.entities.entity.Armadillo;
 public class ArmadilloRenderer extends CustomResourceModelRenderer {
 
     private final ResourcePath<Model>
-            ARMADILLO_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/armadillo/armadillo_adult"),
-            ARMADILLO_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/armadillo/armadillo_baby"),
+            ARMADILLO_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/armadillo/main"),
+            ARMADILLO_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/armadillo_baby/main"),
             ARMADILLO_ADULT_SCARED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/armadillo/armadillo_adult_scared"),
             ARMADILLO_BABY_SCARED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/armadillo/armadillo_baby_scared");
 

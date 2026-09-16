@@ -46,10 +46,10 @@ public class AxolotlRenderer extends CustomResourceModelRenderer {
     public void render(Entity entity, BlockNeighborhood block, Part part, TileModelView tileModel) {
         if (!(entity instanceof Axolotl axolotl)) return;
 
-        // base model "entity/axolotl/color/axolotl_{age}_{variant}"
+        // base model "entity/axolotl{age}/main_{variant}"
         boolean isBaby = axolotl.getAge() < 0;
         String variantName = axolotl.getVariant().toString().toLowerCase();
-        String modelPath = "entity/axolotl/color/axolotl_" + (isBaby ? "baby_" : "adult_") + variantName;
+        String modelPath = "entity/axolotl" + (isBaby ? "_baby" : "") + "/main_" + variantName;
         ResourcePath<Model> model = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, modelPath);
 
         // render chosen model

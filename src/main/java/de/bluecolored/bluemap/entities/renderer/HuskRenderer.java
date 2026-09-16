@@ -39,8 +39,8 @@ import de.bluecolored.bluemap.entities.entity.Zombie;
 public class HuskRenderer extends CustomResourceModelRenderer {
 
     private final ResourcePath<Model>
-            ZOMBIE_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/zombie/husk_adult"),
-            ZOMBIE_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/zombie/husk_baby");
+            ZOMBIE_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/husk/main"),
+            ZOMBIE_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/husk_baby/main");
 
     public HuskRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);

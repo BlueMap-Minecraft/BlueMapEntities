@@ -1,0 +1,60 @@
+
+function bme_test:kill
+
+execute positioned ~ ~ ~0 run function bme_test:group/sheep
+execute positioned ~ ~ ~3 run function bme_test:group/sheep_states
+execute positioned ~ ~ ~6 run function bme_test:group/cow
+execute positioned ~ ~ ~9 run function bme_test:group/mooshroom
+execute positioned ~ ~ ~12 run function bme_test:group/pig
+execute positioned ~ ~ ~15 run function bme_test:group/chicken
+execute positioned ~ ~ ~18 run function bme_test:group/rabbit
+execute positioned ~ ~ ~21 run function bme_test:group/parrot
+execute positioned ~ ~ ~24 run function bme_test:group/cat
+execute positioned ~ ~ ~27 run function bme_test:group/cat_collar
+execute positioned ~ ~ ~30 run function bme_test:group/ocelot
+execute positioned ~ ~ ~33 run function bme_test:group/fox
+execute positioned ~ ~ ~36 run function bme_test:group/wolf
+execute positioned ~ ~ ~39 run function bme_test:group/beast
+execute positioned ~ ~ ~43 run function bme_test:group/frog
+execute positioned ~ ~ ~46 run function bme_test:group/axolotl
+execute positioned ~ ~ ~49 run function bme_test:group/bee
+execute positioned ~ ~ ~52 run function bme_test:group/llama
+execute positioned ~ ~ ~56 run function bme_test:group/llama_carpet
+execute positioned ~ ~ ~60 run function bme_test:group/trader_llama
+execute positioned ~ ~ ~64 run function bme_test:group/horse_markings_0
+execute positioned ~ ~ ~68 run function bme_test:group/horse_markings_1
+execute positioned ~ ~ ~72 run function bme_test:group/horse_markings_2
+execute positioned ~ ~ ~76 run function bme_test:group/horse_markings_3
+execute positioned ~ ~ ~80 run function bme_test:group/horse_markings_4
+execute positioned ~ ~ ~84 run function bme_test:group/horse_baby
+execute positioned ~ ~ ~88 run function bme_test:group/chested_horse
+execute positioned ~ ~ ~92 run function bme_test:group/undead_horse
+execute positioned ~ ~ ~96 run function bme_test:group/camel
+execute positioned ~ ~ ~101 run function bme_test:group/armadillo
+execute positioned ~ ~ ~104 run function bme_test:group/zombie
+execute positioned ~ ~ ~107 run function bme_test:group/skeleton
+execute positioned ~ ~ ~110 run function bme_test:group/piglin
+execute positioned ~ ~ ~113 run function bme_test:group/hoglin
+execute positioned ~ ~ ~117 run function bme_test:group/villager
+execute positioned ~ ~ ~120 run function bme_test:group/villager_type
+execute positioned ~ ~ ~123 run function bme_test:group/villager_profession
+execute positioned ~ ~ ~126 run function bme_test:group/villager_level
+execute positioned ~ ~ ~129 run function bme_test:group/zombie_villager_type
+execute positioned ~ ~ ~132 run function bme_test:group/zombie_villager_profession
+execute positioned ~ ~ ~135 run function bme_test:group/zombie_villager_level
+execute positioned ~ ~ ~138 run function bme_test:group/monster
+execute positioned ~ ~ ~141 run function bme_test:group/monster_big
+execute positioned ~ ~ ~146 run function bme_test:group/cube
+execute positioned ~ ~ ~150 run function bme_test:group/copper_golem
+execute positioned ~ ~ ~153 run function bme_test:group/golem
+execute positioned ~ ~ ~157 run function bme_test:group/aquatic
+execute positioned ~ ~ ~160 run function bme_test:group/salmon
+execute positioned ~ ~ ~163 run function bme_test:group/tropical_fish
+execute positioned ~ ~ ~166 run function bme_test:group/ghast
+execute positioned ~ ~ ~176 run function bme_test:group/misc
+execute positioned ~ ~ ~179 run function bme_test:group/ender_dragon
+execute positioned ~ ~ ~199 run function bme_test:group/prop
+execute positioned ~ ~ ~203 run function bme_test:group/boat
+execute positioned ~ ~ ~207 run function bme_test:group/chest_boat
+
+tellraw @s {"text":"[bme] spawned 421 test-entities in 55 groups","color":"green"}

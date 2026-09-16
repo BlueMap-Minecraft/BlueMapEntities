@@ -1,0 +1,5 @@
+{
+  "parts": [
+    { "model": "minecraft:entity/cave_spider/main" }
+  ]
+}

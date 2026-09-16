@@ -39,8 +39,8 @@ import de.bluecolored.bluemap.entities.entity.AgeEntity;
 public class DolphinRenderer extends CustomResourceModelRenderer {
 
     private final ResourcePath<Model>
-            DOLPHIN_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/dolphin/adult"),
-            DOLPHIN_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/dolphin/baby");
+            DOLPHIN_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/dolphin/main"),
+            DOLPHIN_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/dolphin_baby/main");
 
     public DolphinRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);

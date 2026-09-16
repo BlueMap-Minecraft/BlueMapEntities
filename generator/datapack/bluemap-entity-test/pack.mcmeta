@@ -1,0 +1,9 @@
+{
+  "pack": {
+    "description": "BlueMap entity test-scene: spawns every supported entity-variant on a grid",
+    "pack_format": 100,
+    "min_format": 48,
+    "max_format": 9999,
+    "supported_formats": { "min_inclusive": 48, "max_inclusive": 9999 }
+  }
+}

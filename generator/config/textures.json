@@ -1,0 +1,109 @@
+{
+  "giant#main": "entity/zombie/zombie",
+  "skeleton_horse#main": "entity/horse/horse_skeleton",
+  "skeleton_horse_baby#main": "entity/horse/horse_skeleton_baby",
+  "zombie_horse#main": "entity/horse/horse_zombie",
+  "zombie_horse_baby#main": "entity/horse/horse_zombie_baby",
+
+  "bogged#outer": "entity/skeleton/bogged_overlay",
+  "stray#outer": "entity/skeleton/stray_overlay",
+  "slime#outer": "entity/slime/slime",
+
+  "sulfur_cube#main": "entity/sulfur_cube/sulfur_cube_outer",
+  "sulfur_cube_small#main": "entity/sulfur_cube/sulfur_cube_outer_small",
+  "ender_dragon#main": "entity/enderdragon/dragon",
+
+  "chest_minecart#main": "entity/minecart/minecart",
+  "command_block_minecart#main": "entity/minecart/minecart",
+  "furnace_minecart#main": "entity/minecart/minecart",
+  "hopper_minecart#main": "entity/minecart/minecart",
+  "spawner_minecart#main": "entity/minecart/minecart",
+  "tnt_minecart#main": "entity/minecart/minecart",
+
+  "tropical_fish_small#main": "entity/fish/tropical_a",
+  "tropical_fish_large#main": "entity/fish/tropical_b",
+  "tropical_fish_small#pattern": [
+    "entity/fish/tropical_a_pattern_1",
+    "entity/fish/tropical_a_pattern_2",
+    "entity/fish/tropical_a_pattern_3",
+    "entity/fish/tropical_a_pattern_4",
+    "entity/fish/tropical_a_pattern_5",
+    "entity/fish/tropical_a_pattern_6"
+  ],
+  "tropical_fish_large#pattern": [
+    "entity/fish/tropical_b_pattern_1",
+    "entity/fish/tropical_b_pattern_2",
+    "entity/fish/tropical_b_pattern_3",
+    "entity/fish/tropical_b_pattern_4",
+    "entity/fish/tropical_b_pattern_5",
+    "entity/fish/tropical_b_pattern_6"
+  ],
+
+  "copper_golem#main": {
+    "unaffected": "entity/copper_golem/copper_golem",
+    "exposed": "entity/copper_golem/copper_golem_exposed",
+    "weathered": "entity/copper_golem/copper_golem_weathered",
+    "oxidized": "entity/copper_golem/copper_golem_oxidized"
+  },
+  "copper_golem_running#main": {
+    "unaffected": "entity/copper_golem/copper_golem",
+    "exposed": "entity/copper_golem/copper_golem_exposed",
+    "weathered": "entity/copper_golem/copper_golem_weathered",
+    "oxidized": "entity/copper_golem/copper_golem_oxidized"
+  },
+  "copper_golem_sitting#main": {
+    "unaffected": "entity/copper_golem/copper_golem",
+    "exposed": "entity/copper_golem/copper_golem_exposed",
+    "weathered": "entity/copper_golem/copper_golem_weathered",
+    "oxidized": "entity/copper_golem/copper_golem_oxidized"
+  },
+  "copper_golem_star#main": {
+    "unaffected": "entity/copper_golem/copper_golem",
+    "exposed": "entity/copper_golem/copper_golem_exposed",
+    "weathered": "entity/copper_golem/copper_golem_weathered",
+    "oxidized": "entity/copper_golem/copper_golem_oxidized"
+  },
+
+  "fox#main": {
+    "red": "entity/fox/fox",
+    "snow": "entity/fox/fox_snow"
+  },
+  "fox_baby#main": {
+    "red": "entity/fox/fox_baby",
+    "snow": "entity/fox/fox_snow_baby"
+  },
+
+  "camel#main": {
+    "camel": "entity/camel/camel",
+    "husk": "entity/camel/camel_husk"
+  },
+  "camel_baby#main": {
+    "camel": "entity/camel/camel_baby",
+    "husk": "entity/camel/camel_husk"
+  },
+
+  "llama#main": {
+    "creamy": "entity/llama/llama_creamy",
+    "white": "entity/llama/llama_white",
+    "brown": "entity/llama/llama_brown",
+    "gray": "entity/llama/llama_gray"
+  },
+  "llama_baby#main": {
+    "creamy": "entity/llama/llama_creamy_baby",
+    "white": "entity/llama/llama_white_baby",
+    "brown": "entity/llama/llama_brown_baby",
+    "gray": "entity/llama/llama_gray_baby"
+  },
+  "trader_llama#main": {
+    "creamy": "entity/llama/llama_creamy",
+    "white": "entity/llama/llama_white",
+    "brown": "entity/llama/llama_brown",
+    "gray": "entity/llama/llama_gray"
+  },
+  "trader_llama_baby#main": {
+    "creamy": "entity/llama/llama_creamy_baby",
+    "white": "entity/llama/llama_white_baby",
+    "brown": "entity/llama/llama_brown_baby",
+    "gray": "entity/llama/llama_gray_baby"
+  }
+}

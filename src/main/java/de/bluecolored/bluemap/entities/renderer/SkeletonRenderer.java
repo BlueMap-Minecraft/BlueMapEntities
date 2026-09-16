@@ -39,11 +39,13 @@ import de.bluecolored.bluemap.entities.entity.*;
 public class SkeletonRenderer extends CustomResourceModelRenderer {
 
     private final ResourcePath<Model>
-            SKELETON = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/skeleton/skeleton"),
-            WITHER_SKELETON = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/skeleton/wither_skeleton"),
-            STRAY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/skeleton/stray"),
-            BOGGED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/skeleton/bogged"),
-            PARCHED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/skeleton/parched");
+            SKELETON = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/skeleton/main"),
+            WITHER_SKELETON = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/wither_skeleton/main"),
+            STRAY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/stray/main"),
+            BOGGED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/bogged/main"),
+            PARCHED = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/parched/main"),
+            STRAY_OUTER = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/stray/outer"),
+            BOGGED_OUTER = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/bogged/outer");
 
     public SkeletonRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);
@@ -64,6 +66,15 @@ public class SkeletonRenderer extends CustomResourceModelRenderer {
 
         // render chosen model
         super.render(entity, block, model.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
+
+        // render overlay layer, parched has no overlay-texture
+        ResourcePath<Model> outerModel = switch (skeleton) {
+            case Stray ignored -> STRAY_OUTER;
+            case Bogged ignored -> BOGGED_OUTER;
+            default -> null;
+        };
+        if (outerModel != null)
+            super.render(entity, block, outerModel.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
 
         // apply part transform
         if (part.isTransformed())

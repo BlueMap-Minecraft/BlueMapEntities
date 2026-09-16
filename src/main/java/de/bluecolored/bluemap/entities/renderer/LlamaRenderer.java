@@ -43,9 +43,6 @@ import java.util.Optional;
 
 public class LlamaRenderer extends CustomResourceModelRenderer {
 
-    private final ResourcePath<Model>
-            LLAMA_CHEST = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/llama/llama_chest");
-
     public LlamaRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);
     }
@@ -57,28 +54,28 @@ public class LlamaRenderer extends CustomResourceModelRenderer {
         boolean isTraderLlama = entity instanceof TraderLlama;
         boolean isBaby = llama.getAge() < 0;
 
-        // base model "entity/llama/color/llama_{age}_{color}"
-        String baseModelPath = "entity/llama/color/llama_" + (isBaby ? "baby_" : "adult_");
+        // base model "entity/{llama|trader_llama}{age}/main_{color}"
+        String llamaModel = "entity/" + (isTraderLlama ? "trader_llama" : "llama") + (isBaby ? "_baby" : "");
+        String color = switch (llama.getVariant()) {
+            case CREAMY -> "creamy";
+            case WHITE -> "white";
+            case BROWN -> "brown";
+            case GRAY -> "gray";
+        };
 
-        switch (llama.getVariant()) {
-            case CREAMY -> baseModelPath += "creamy";
-            case WHITE -> baseModelPath += "white";
-            case BROWN -> baseModelPath += "brown";
-            case GRAY -> baseModelPath += "gray";
-        }
-
-        ResourcePath<Model> baseModel = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, baseModelPath);
+        ResourcePath<Model> baseModel = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, llamaModel + "/main_" + color);
         super.render(entity, block, baseModel.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
 
 
         // chest model (only if adult)
         if (llama.isWithChest() && !isBaby) {
-            super.render(entity, block, LLAMA_CHEST.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
+            ResourcePath<Model> chestModel = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, llamaModel + "/chest_" + color);
+            super.render(entity, block, chestModel.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
         }
 
 
-        // decoration model "entity/llama/carpet/llama_{age}_{color}"
-        String decorationModelPath = "entity/llama/carpet/llama_" + (isBaby ? "baby_" : "adult_");
+        // decoration model "entity/llama{age}/decor_{color}"
+        String decorationModelPath = "entity/llama" + (isBaby ? "_baby" : "") + "/decor_";
 
         switch (
                 Optional.ofNullable(llama.getEquipment())
@@ -108,7 +105,7 @@ public class LlamaRenderer extends CustomResourceModelRenderer {
 
         if (decorationModelPath == null && isTraderLlama) {
             // trader llama without carpet uses special decoration model
-            decorationModelPath = "entity/llama/carpet/llama_" + (isBaby ? "baby" : "adult") + "_trader_llama";
+            decorationModelPath = "entity/llama" + (isBaby ? "_baby/decor_trader_llama_baby" : "/decor_trader_llama");
         }
 
         if (decorationModelPath != null) {

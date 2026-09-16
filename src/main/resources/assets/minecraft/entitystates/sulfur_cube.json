@@ -1,0 +1,6 @@
+{
+  "parts": [
+    { "model": "minecraft:entity/sulfur_cube/main" },
+    { "model": "minecraft:entity/sulfur_cube/inner" }
+  ]
+}

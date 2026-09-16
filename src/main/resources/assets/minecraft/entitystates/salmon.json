@@ -1,5 +1,5 @@
 {
   "parts": [
-    { "model": "minecraft:entity/salmon/salmon" }
+    { "renderer": "minecraft:salmon" }
   ]
 }

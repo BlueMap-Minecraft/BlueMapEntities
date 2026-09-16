@@ -1,6 +1,0 @@
-{
-  "parent": "entity/cat/cat_baby",
-  "textures": {
-    "0": "entity/cat/black"
-  }
-}

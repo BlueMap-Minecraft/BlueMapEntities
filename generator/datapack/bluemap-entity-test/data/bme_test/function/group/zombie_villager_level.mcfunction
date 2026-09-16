@@ -1,0 +1,8 @@
+# zombie_villager profession-levels (7 entities)
+summon minecraft:zombie_villager ~0 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],VillagerData:{type:"minecraft:plains",profession:"minecraft:farmer",level:1},VillagerDataFinalized:1b}
+summon minecraft:zombie_villager ~2 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],VillagerData:{type:"minecraft:plains",profession:"minecraft:farmer",level:2},VillagerDataFinalized:1b}
+summon minecraft:zombie_villager ~4 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],VillagerData:{type:"minecraft:plains",profession:"minecraft:farmer",level:3},VillagerDataFinalized:1b}
+summon minecraft:zombie_villager ~6 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],VillagerData:{type:"minecraft:plains",profession:"minecraft:farmer",level:4},VillagerDataFinalized:1b}
+summon minecraft:zombie_villager ~8 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],VillagerData:{type:"minecraft:plains",profession:"minecraft:farmer",level:5},VillagerDataFinalized:1b}
+summon minecraft:zombie_villager ~10 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],VillagerData:{type:"minecraft:plains",profession:"minecraft:nitwit",level:5},VillagerDataFinalized:1b}
+summon minecraft:zombie_villager ~12 ~ ~ {Tags:["bme_test"],NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[0f,0f],VillagerData:{type:"minecraft:plains",profession:"minecraft:none",level:5},VillagerDataFinalized:1b}

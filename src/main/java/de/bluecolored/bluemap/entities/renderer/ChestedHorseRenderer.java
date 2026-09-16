@@ -39,12 +39,12 @@ import de.bluecolored.bluemap.entities.entity.*;
 public class ChestedHorseRenderer extends CustomResourceModelRenderer {
 
     private final ResourcePath<Model>
-            MULE_HORSE_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/horse/color/horse_adult_mule"),
-            MULE_HORSE_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/horse/color/horse_baby_mule"),
-            DONKEY_HORSE_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/horse/color/horse_adult_donkey"),
-            DONKEY_HORSE_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/horse/color/horse_baby_donkey"),
-            CHEST_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/horse/horse_adult_chest"),
-            CHEST_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/horse/horse_baby_chest");
+            MULE_HORSE_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/mule/main"),
+            MULE_HORSE_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/mule_baby/main"),
+            DONKEY_HORSE_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/donkey/main"),
+            DONKEY_HORSE_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/donkey_baby/main"),
+            MULE_CHEST = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/mule/chest"),
+            DONKEY_CHEST = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/donkey/chest");
 
     public ChestedHorseRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);
@@ -55,28 +55,27 @@ public class ChestedHorseRenderer extends CustomResourceModelRenderer {
         if (!(entity instanceof ChestedHorse horse)) return;
 
         // render horse model
-        ResourcePath<Model> model;
+        ResourcePath<Model> model, chestModel;
         boolean isBaby = horse.getAge() < 0;
         switch (horse) {
             case Mule ignored -> {
-                if (isBaby) model = MULE_HORSE_BABY;
-                else model = MULE_HORSE_ADULT;
+                model = isBaby ? MULE_HORSE_BABY : MULE_HORSE_ADULT;
+                chestModel = MULE_CHEST;
             }
             case Donkey ignored -> {
-                if (isBaby) model = DONKEY_HORSE_BABY;
-                else model = DONKEY_HORSE_ADULT;
+                model = isBaby ? DONKEY_HORSE_BABY : DONKEY_HORSE_ADULT;
+                chestModel = DONKEY_CHEST;
             }
-            default -> model = DONKEY_HORSE_ADULT;
+            default -> {
+                model = DONKEY_HORSE_ADULT;
+                chestModel = DONKEY_CHEST;
+            }
         }
         super.render(entity, block, model.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
 
-        // render chest model if present
-        if (horse.isChested()) {
-            ResourcePath<Model> chestModel;
-            if (isBaby) chestModel = CHEST_BABY;
-            else chestModel = CHEST_ADULT;
+        // render chest model if present (babies never carry chests)
+        if (horse.isChested() && !isBaby)
             super.render(entity, block, chestModel.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
-        }
 
 
         // apply part transform

@@ -34,6 +34,7 @@ import de.bluecolored.bluemap.core.resources.pack.resourcepack.model.Model;
 import de.bluecolored.bluemap.core.util.Key;
 import de.bluecolored.bluemap.core.world.Entity;
 import de.bluecolored.bluemap.core.world.block.BlockNeighborhood;
+import de.bluecolored.bluemap.entities.data.DyeColors;
 import de.bluecolored.bluemap.entities.entity.Cat;
 
 public class CatRenderer extends CustomResourceModelRenderer {
@@ -46,12 +47,22 @@ public class CatRenderer extends CustomResourceModelRenderer {
     public void render(Entity entity, BlockNeighborhood block, Part part, TileModelView tileModel) {
         if (!(entity instanceof Cat cat)) return;
 
-        // choose correct model "entity/cat/color/cat_{age}_{variant}"
-        String modelPath = "entity/cat/color/cat_" + (cat.getAge() < 0 ? "baby_" : "adult_") + cat.getRawVariant();
+        // choose correct model "entity/cat{age}/main_{variant}"
+        String modelPath = "entity/cat" + (cat.getAge() < 0 ? "_baby" : "") + "/main_" + cat.getRawVariant();
         ResourcePath<Model> model = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, modelPath);
 
         // render chosen model
         super.render(entity, block, model.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
+
+        // render collar layer tinted color
+        if (cat.isTame()) {
+            int collarColor = DyeColors.argb(cat.getCollarColor());
+            TintColorProvider collarTint = (index, target) -> target.set(collarColor, true);
+
+            String collarPath = "entity/cat" + (cat.getAge() < 0 ? "_baby" : "") + "/collar";
+            ResourcePath<Model> collar = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, collarPath);
+            super.render(entity, block, collar.getResource(getModelProvider()), collarTint, tileModel);
+        }
 
         // apply part transform
         if (part.isTransformed())

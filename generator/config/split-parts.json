@@ -1,0 +1,9 @@
+{
+  "donkey#main": { "chest": ["body/left_chest", "body/right_chest"] },
+  "mule#main": { "chest": ["body/left_chest", "body/right_chest"] },
+
+  "llama#main": { "chest": ["left_chest", "right_chest"] },
+  "llama_baby#main": { "chest": ["left_chest", "right_chest"] },
+  "trader_llama#main": { "chest": ["left_chest", "right_chest"] },
+  "trader_llama_baby#main": { "chest": ["left_chest", "right_chest"] }
+}

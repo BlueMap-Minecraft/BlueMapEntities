@@ -39,8 +39,8 @@ import de.bluecolored.bluemap.entities.entity.Zombie;
 public class ZombieRenderer extends CustomResourceModelRenderer {
 
     private final ResourcePath<Model>
-            ZOMBIE_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/zombie/zombie_adult"),
-            ZOMBIE_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/zombie/zombie_baby");
+            ZOMBIE_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/zombie/main"),
+            ZOMBIE_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/zombie_baby/main");
 
     public ZombieRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);

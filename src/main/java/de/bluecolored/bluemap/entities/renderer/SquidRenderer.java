@@ -40,10 +40,10 @@ import de.bluecolored.bluemap.entities.entity.Squid;
 public class SquidRenderer extends CustomResourceModelRenderer {
 
     private final ResourcePath<Model>
-            SQUID_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/squid/squid_adult"),
-            SQUID_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/squid/squid_baby"),
-            GLOW_SQUID_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/squid/glow_squid_adult"),
-            GLOW_SQUID_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/squid/glow_squid_baby");
+            SQUID_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/squid/main"),
+            SQUID_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/squid_baby/main"),
+            GLOW_SQUID_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/glow_squid/main"),
+            GLOW_SQUID_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/glow_squid_baby/main");
 
     public SquidRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);

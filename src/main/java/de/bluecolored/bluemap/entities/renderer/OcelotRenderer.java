@@ -39,8 +39,8 @@ import de.bluecolored.bluemap.entities.entity.Ocelot;
 public class OcelotRenderer extends CustomResourceModelRenderer {
 
     private final ResourcePath<Model>
-            OCELOT_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/cat/color/cat_adult_ocelot"),
-            OCELOT_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/cat/color/cat_baby_ocelot");
+            OCELOT_ADULT = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/ocelot/main"),
+            OCELOT_BABY = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/ocelot_baby/main");
 
     public OcelotRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);

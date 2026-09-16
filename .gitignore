@@ -2,3 +2,7 @@
 .idea
 build
 gradle.properties
+logs
+run
+run-client
+src/main/resources/assets/minecraft/models/

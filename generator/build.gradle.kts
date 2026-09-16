@@ -3,12 +3,12 @@ plugins {
     id("net.fabricmc.fabric-loom") version "1.17.19"
 }
 
-val mcVersion = (findProperty("mcVersion") as String?) ?: "26.2"
+val mcVersion = (findProperty("mcVersion") as String?) ?: "26.3"
 val loaderVersion = (findProperty("loaderVersion") as String?) ?: "0.19.3"
 val serverDir = layout.projectDirectory.dir("run")
 
-val fabricApiVersion = "0.157.0+26.2"
-val bluemapVersion = "5.23-fabric"
+val fabricApiVersion = "0.160.6+26.3"
+val bluemapVersion = "5.27-fabric"
 
 java {
     toolchain.languageVersion = JavaLanguageVersion.of(25)

@@ -55,7 +55,8 @@ final class LayerConverter {
             "chest_boat", 6f,
             "minecart", 6f,
             "ender_dragon", 52f,
-            "sulfur_cube", 8f
+            "sulfur_cube", 8f,
+            "cushion", 4f
     );
     private static final float POSITION_EPSILON = 1e-3f;
     private static final float ANGLE_EPSILON = 1e-4f;

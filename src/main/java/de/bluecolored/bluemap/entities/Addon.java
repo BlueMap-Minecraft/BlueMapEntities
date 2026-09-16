@@ -82,6 +82,7 @@ public class Addon implements Runnable {
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("magma_cube"), CubeMob.class));
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("villager"), Villager.class));
         EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("zombie_villager"), ZombieVillager.class));
+        EntityType.REGISTRY.register(new EntityType.Impl(Key.minecraft("cushion"), Cushion.class));
 
 
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("llama"), LlamaRenderer::new));
@@ -136,6 +137,7 @@ public class Addon implements Runnable {
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("magma_cube"), CubeRenderer::new));
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("villager"), VillagerRenderer::new));
         EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("zombie_villager"), VillagerRenderer::new));
+        EntityRendererType.REGISTRY.register(new EntityRendererType.Impl(Key.minecraft("cushion"), CushionRenderer::new));
     }
 
 }

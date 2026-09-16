@@ -270,6 +270,16 @@ final class TextureResolver {
             }
             if (!variants.isEmpty()) return variants;
         }
+
+        // the variant in front of the name (entity/cushion/white_cushion)
+        for (String name : names(model, layer)) {
+            List<Variant> variants = new ArrayList<>();
+            for (String texture : assets.texturesIn("entity/" + base(model))) {
+                String file = texture.substring(texture.lastIndexOf('/') + 1);
+                if (file.endsWith("_" + name)) variants.add(new Variant(file.substring(0, file.length() - name.length() - 1), texture));
+            }
+            if (!variants.isEmpty()) return variants;
+        }
         return List.of();
     }
 

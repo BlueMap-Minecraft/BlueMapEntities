@@ -47,10 +47,9 @@ public class AgeRenderer extends CustomResourceModelRenderer {
         if (!(entity instanceof AgeEntity aged)) return;
 
         // model-folder is the entity-type itself, "entity/{type}{age}/main"
-        String modelPath = "entity/" + entity.getId().getValue() + (aged.getAge() < 0 ? "_baby" : "") + "/main";
-        ResourcePath<Model> model = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, modelPath);
+        Key modelPath = Key.minecraft("entity/" + entity.getId().getValue() + (aged.getAge() < 0 ? "_baby" : "") + "/main");
 
-        super.render(entity, block, model.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
+        super.render(entity, block, modelPath, TintColorProvider.NO_TINT, tileModel);
 
         // apply part transform
         if (part.isTransformed())

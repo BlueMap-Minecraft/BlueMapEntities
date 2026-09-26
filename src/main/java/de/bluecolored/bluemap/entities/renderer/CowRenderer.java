@@ -47,11 +47,10 @@ public class CowRenderer extends CustomResourceModelRenderer {
         if (!(entity instanceof AgeVariantEntity cow)) return;
 
         // craft model path based on "entity/cow{age}/main_{variant}"
-        String modelPath = "entity/cow" + (cow.getAge() < 0 ? "_baby" : "") + "/main_" + cow.getRawVariant();
-        ResourcePath<Model> model = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, modelPath);
+        Key modelPath = Key.minecraft("entity/cow" + (cow.getAge() < 0 ? "_baby" : "") + "/main_" + cow.getRawVariant());
 
         // render chosen model
-        super.render(entity, block, model.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
+        super.render(entity, block, modelPath, TintColorProvider.NO_TINT, tileModel);
 
         // apply part transform
         if (part.isTransformed())

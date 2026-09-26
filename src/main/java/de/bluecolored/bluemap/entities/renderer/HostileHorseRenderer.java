@@ -70,7 +70,7 @@ public class HostileHorseRenderer extends CustomResourceModelRenderer {
         }
 
         // render chosen model
-        super.render(entity, block, model.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
+        super.render(entity, block, model, TintColorProvider.NO_TINT, tileModel);
 
 
         // apply part transform

@@ -26,6 +26,7 @@ package de.bluecolored.bluemap.entities.renderer;
 
 import com.flowpowered.math.vector.Vector3f;
 import com.flowpowered.math.vector.Vector4f;
+import de.bluecolored.bluemap.core.logger.Logger;
 import de.bluecolored.bluemap.core.map.TextureGallery;
 import de.bluecolored.bluemap.core.map.hires.RenderSettings;
 import de.bluecolored.bluemap.core.map.hires.TileModel;
@@ -49,6 +50,7 @@ import de.bluecolored.bluemap.core.world.LightData;
 import de.bluecolored.bluemap.core.world.block.BlockNeighborhood;
 import lombok.Getter;
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Function;
 
@@ -101,6 +103,26 @@ public class CustomResourceModelRenderer implements EntityRenderer {
         // apply transform
         if (part.isTransformed())
             tileModel.transform(part.getTransformMatrix());
+    }
+
+    void render(Entity entity, BlockNeighborhood block, Key modelPath, TintColorProvider tintProvider, TileModelView tileModel) {
+        Model model = modelProvider.apply(modelPath);
+        if (model == null) {
+            Logger.global.noFloodDebug("[BlueMapEntities] Failed to resolve Entity-Model: " + modelPath);
+            return;
+        }
+
+        render(entity, block, model, tintProvider, tileModel);
+    }
+
+    void render(Entity entity, BlockNeighborhood block, ResourcePath<Model> modelPath, TintColorProvider tintProvider, TileModelView tileModel) {
+        Model model = modelPath.getResource(modelProvider);
+        if (model == null) {
+            Logger.global.noFloodDebug("[BlueMapEntities] Failed to resolve Entity-Model: " + modelPath);
+            return;
+        }
+
+        render(entity, block, model, tintProvider, tileModel);
     }
 
     void render(Entity entity, BlockNeighborhood block, Model model, TintColorProvider tintProvider, TileModelView tileModel) {

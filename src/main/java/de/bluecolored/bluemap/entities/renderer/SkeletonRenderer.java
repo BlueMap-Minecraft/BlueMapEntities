@@ -65,7 +65,7 @@ public class SkeletonRenderer extends CustomResourceModelRenderer {
         };
 
         // render chosen model
-        super.render(entity, block, model.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
+        super.render(entity, block, model, TintColorProvider.NO_TINT, tileModel);
 
         // render overlay layer, parched has no overlay-texture
         ResourcePath<Model> outerModel = switch (skeleton) {
@@ -74,7 +74,7 @@ public class SkeletonRenderer extends CustomResourceModelRenderer {
             default -> null;
         };
         if (outerModel != null)
-            super.render(entity, block, outerModel.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
+            super.render(entity, block, outerModel, TintColorProvider.NO_TINT, tileModel);
 
         // apply part transform
         if (part.isTransformed())

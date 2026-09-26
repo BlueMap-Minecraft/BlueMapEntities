@@ -49,11 +49,10 @@ public class AxolotlRenderer extends CustomResourceModelRenderer {
         // base model "entity/axolotl{age}/main_{variant}"
         boolean isBaby = axolotl.getAge() < 0;
         String variantName = axolotl.getVariant().toString().toLowerCase();
-        String modelPath = "entity/axolotl" + (isBaby ? "_baby" : "") + "/main_" + variantName;
-        ResourcePath<Model> model = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, modelPath);
+        Key modelPath = Key.minecraft("entity/axolotl" + (isBaby ? "_baby" : "") + "/main_" + variantName);
 
         // render chosen model
-        super.render(entity, block, model.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
+        super.render(entity, block, modelPath, TintColorProvider.NO_TINT, tileModel);
 
         // apply part transform
         if (part.isTransformed())

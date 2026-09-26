@@ -63,8 +63,8 @@ public class DrownedRenderer extends CustomResourceModelRenderer {
         }
 
         // render chosen model and its overlay layer
-        super.render(entity, block, model.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
-        super.render(entity, block, outerModel.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
+        super.render(entity, block, model, TintColorProvider.NO_TINT, tileModel);
+        super.render(entity, block, outerModel, TintColorProvider.NO_TINT, tileModel);
 
         // apply part transform
         if (part.isTransformed())

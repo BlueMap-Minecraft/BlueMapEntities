@@ -38,6 +38,10 @@ import de.bluecolored.bluemap.entities.entity.ArmorStand;
 
 public class ArmorStandRenderer extends CustomResourceModelRenderer {
 
+    private final ResourcePath<Model>
+            ARMORSTAND_SMALL = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/armor_stand_small/main"),
+            ARMORSTAND = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/armor_stand/main");
+
     public ArmorStandRenderer(ResourcePack resourcePack, TextureGallery textureGallery, RenderSettings renderSettings) {
         super(resourcePack, textureGallery, renderSettings);
     }
@@ -46,10 +50,11 @@ public class ArmorStandRenderer extends CustomResourceModelRenderer {
     public void render(Entity entity, BlockNeighborhood block, Part part, TileModelView tileModel) {
         if (!(entity instanceof ArmorStand armorStand)) return;
 
-        ResourcePath<Model> model = new ResourcePath<>(Key.MINECRAFT_NAMESPACE,
-                armorStand.isSmall() ? "entity/armor_stand_small/main" : "entity/armor_stand/main");
+        ResourcePath<Model> model = armorStand.isSmall() ?
+                ARMORSTAND_SMALL :
+                ARMORSTAND;
 
-        super.render(entity, block, model.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
+        super.render(entity, block, model, TintColorProvider.NO_TINT, tileModel);
 
         // apply part transform
         if (part.isTransformed())

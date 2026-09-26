@@ -47,9 +47,9 @@ public class SalmonRenderer extends CustomResourceModelRenderer {
         if (!(entity instanceof Salmon salmon)) return;
 
         // the three sizes are separate models, "entity/salmon{size}/main"
-        ResourcePath<Model> model = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, "entity/" + salmon.getModel() + "/main");
+        Key model = Key.minecraft("entity/" + salmon.getModel() + "/main");
 
-        super.render(entity, block, model.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
+        super.render(entity, block, model, TintColorProvider.NO_TINT, tileModel);
 
         // apply part transform
         if (part.isTransformed())

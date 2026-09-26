@@ -63,14 +63,14 @@ public class LlamaRenderer extends CustomResourceModelRenderer {
             case GRAY -> "gray";
         };
 
-        ResourcePath<Model> baseModel = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, llamaModel + "/main_" + color);
-        super.render(entity, block, baseModel.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
+        Key baseModel = Key.minecraft(llamaModel + "/main_" + color);
+        super.render(entity, block, baseModel, TintColorProvider.NO_TINT, tileModel);
 
 
         // chest model (only if adult)
         if (llama.isWithChest() && !isBaby) {
-            ResourcePath<Model> chestModel = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, llamaModel + "/chest_" + color);
-            super.render(entity, block, chestModel.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
+            Key chestModel = Key.minecraft(llamaModel + "/chest_" + color);
+            super.render(entity, block, chestModel, TintColorProvider.NO_TINT, tileModel);
         }
 
 
@@ -109,8 +109,8 @@ public class LlamaRenderer extends CustomResourceModelRenderer {
         }
 
         if (decorationModelPath != null) {
-            ResourcePath<Model> decorationModel = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, decorationModelPath);
-            super.render(entity, block, decorationModel.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
+            Key decorationModel = Key.minecraft(decorationModelPath);
+            super.render(entity, block, decorationModel, TintColorProvider.NO_TINT, tileModel);
         }
 
         // apply part transform

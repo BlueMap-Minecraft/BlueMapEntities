@@ -27,10 +27,8 @@ package de.bluecolored.bluemap.entities.renderer;
 import de.bluecolored.bluemap.core.map.TextureGallery;
 import de.bluecolored.bluemap.core.map.hires.RenderSettings;
 import de.bluecolored.bluemap.core.map.hires.TileModelView;
-import de.bluecolored.bluemap.core.resources.ResourcePath;
 import de.bluecolored.bluemap.core.resources.pack.resourcepack.ResourcePack;
 import de.bluecolored.bluemap.core.resources.pack.resourcepack.entitystate.Part;
-import de.bluecolored.bluemap.core.resources.pack.resourcepack.model.Model;
 import de.bluecolored.bluemap.core.util.Key;
 import de.bluecolored.bluemap.core.world.Entity;
 import de.bluecolored.bluemap.core.world.block.BlockNeighborhood;
@@ -62,13 +60,12 @@ public class TropicalFishRenderer extends CustomResourceModelRenderer {
 
         // "entity/tropical_fish_{small|large}/main" tint base-color
         String fishModel = "entity/tropical_fish_" + (isLarge ? "large" : "small") + "/";
-        ResourcePath<Model> baseModel = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, fishModel + "main");
-        super.render(entity, block, baseModel.getResource(getModelProvider()), tint(tropicalFish.getBaseColor()), tileModel);
+        Key baseModel = Key.minecraft(fishModel + "main");
+        super.render(entity, block, baseModel, tint(tropicalFish.getBaseColor()), tileModel);
 
         // "entity/tropical_fish_{small|large}/pattern_tropical_{a|b}_pattern_{1-6}"
-        String patternModel = fishModel + "pattern_tropical_" + (isLarge ? "b" : "a") + "_pattern_" + (pattern + 1);
-        ResourcePath<Model> patternPath = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, patternModel);
-        super.render(entity, block, patternPath.getResource(getModelProvider()), tint(tropicalFish.getPatternColor()), tileModel);
+        Key patternModel = Key.minecraft(fishModel + "pattern_tropical_" + (isLarge ? "b" : "a") + "_pattern_" + (pattern + 1));
+        super.render(entity, block, patternModel, tint(tropicalFish.getPatternColor()), tileModel);
 
         // apply part transform
         if (part.isTransformed())
@@ -77,7 +74,7 @@ public class TropicalFishRenderer extends CustomResourceModelRenderer {
 
     private TintColorProvider tint(int dyeColor) {
         int color = 0xFF000000 | DYE_COLORS[dyeColor & 0xF];
-        return (index, target) -> target.set(color, true);
+        return (_, target) -> target.set(color, true);
     }
 
 }

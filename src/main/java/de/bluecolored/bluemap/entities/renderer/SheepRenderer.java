@@ -70,14 +70,14 @@ public class SheepRenderer extends CustomResourceModelRenderer {
         } else {
             baseModel = SHEEP_ADULT;
         }
-        super.render(entity, block, baseModel.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
+        super.render(entity, block, baseModel, TintColorProvider.NO_TINT, tileModel);
 
         // render wool layer if not sheared, tinted by the wool-color
         if (!sheep.isSheared()) {
             int color = sheep.getColor() & 0xFF;
             if (color >= WOOL_COLORS.length) color = 0;
             int woolColor = 0xFF000000 | WOOL_COLORS[color];
-            TintColorProvider woolTint = (index, target) -> target.set(woolColor, true);
+            TintColorProvider woolTint = (_, target) -> target.set(woolColor, true);
 
             ResourcePath<Model> woolModel;
             if (isBaby) {
@@ -85,10 +85,10 @@ public class SheepRenderer extends CustomResourceModelRenderer {
             } else {
                 woolModel = SHEEP_ADULT_WOOL;
             }
-            super.render(entity, block, woolModel.getResource(getModelProvider()), woolTint, tileModel);
+            super.render(entity, block, woolModel, woolTint, tileModel);
 
             if (!isBaby && color != 0) {
-                super.render(entity, block, SHEEP_ADULT_WOOL_UNDERCOAT.getResource(getModelProvider()), woolTint, tileModel);
+                super.render(entity, block, SHEEP_ADULT_WOOL_UNDERCOAT, woolTint, tileModel);
             }
         }
 

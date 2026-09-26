@@ -61,8 +61,8 @@ public class HorseRenderer extends CustomResourceModelRenderer {
             case 6 -> baseModelPath += "darkbrown";
             default -> baseModelPath += "unknown";
         }
-        ResourcePath<Model> baseModel = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, baseModelPath);
-        super.render(entity, block, baseModel.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
+        Key baseModel = Key.minecraft(baseModelPath);
+        super.render(entity, block, baseModel, TintColorProvider.NO_TINT, tileModel);
 
 
         // render markings model "entity/horse{age}/main_markings_{markings}" if present
@@ -76,8 +76,8 @@ public class HorseRenderer extends CustomResourceModelRenderer {
             default -> markingModelPath += "unknown";
         }
         if (markingModelPath != null) {
-            ResourcePath<Model> markingModel = new ResourcePath<>(Key.MINECRAFT_NAMESPACE, markingModelPath);
-            super.render(entity, block, markingModel.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
+            Key markingModel = Key.minecraft(markingModelPath);
+            super.render(entity, block, markingModel, TintColorProvider.NO_TINT, tileModel);
         }
 
         // apply part transform

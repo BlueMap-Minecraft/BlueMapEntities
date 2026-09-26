@@ -71,11 +71,11 @@ public class ChestedHorseRenderer extends CustomResourceModelRenderer {
                 chestModel = DONKEY_CHEST;
             }
         }
-        super.render(entity, block, model.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
+        super.render(entity, block, model, TintColorProvider.NO_TINT, tileModel);
 
         // render chest model if present (babies never carry chests)
         if (horse.isChested() && !isBaby)
-            super.render(entity, block, chestModel.getResource(getModelProvider()), TintColorProvider.NO_TINT, tileModel);
+            super.render(entity, block, chestModel, TintColorProvider.NO_TINT, tileModel);
 
 
         // apply part transform

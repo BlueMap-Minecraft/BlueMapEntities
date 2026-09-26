@@ -16,17 +16,35 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
       - name: Set up Java
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@v6
         with:
           distribution: 'temurin'
-          java-version: 21
+          java-version: 25
           cache: 'gradle'
       - name: Build with Gradle
-        run: ./gradlew build --stacktrace
+        run: ./gradlew :generator:generateEntityModels build --stacktrace
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: artifacts
           path: build/libs/*
+      - name: Publish Generation Report
+        if: always()
+        run: |
+          report=generator/build/generation-report.txt
+          [ -f "$report" ] || exit 0
+          {
+            echo "## Entity model generation report"
+            echo
+            head -n 1 "$report"
+            echo
+            echo "<details><summary>Full report</summary>"
+            echo
+            echo '```'
+            cat "$report"
+            echo '```'
+            echo
+            echo "</details>"
+          } >> "$GITHUB_STEP_SUMMARY"
